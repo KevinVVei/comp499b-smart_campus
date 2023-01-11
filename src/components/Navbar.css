@@ -1,6 +1,6 @@
 ul {
   list-style-type: none;
-  margin: 0;
+  margin-top: -20px;
   padding: 0;
   overflow: hidden;
   background-color: blue;
@@ -23,7 +23,6 @@ li button {
   display: block;
   color: black;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
   width: 200px;
 }
