@@ -10,7 +10,7 @@ export default class Navbar extends Component {
           <li><button href="#about">About</button></li>
           <li><button href="#course">Course</button></li>
           <li><button href="#Event">Event</button></li>
-          <li className="sign"><button href="#SignIn">Sign In</button></li>
+          <li className="sign"><a href="/SignIn"><button>Sign In</button></a></li>
         </ul>
       </div>
     )
