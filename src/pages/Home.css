@@ -1,0 +1,66 @@
+.HomeTitle{
+    color: yellow;
+    text-align: center;
+    padding-top: 10vh;
+}
+
+.HomepageBackground{
+    align-self: flex-start;
+
+}
+
+.TextL{
+    width: 50vw;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 20vw;
+}
+
+.TextR{
+    width: 50vw;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    padding-right: 20vw;
+    padding-left: 5vw;
+    float: right;
+}
+
+.PictureR{
+    width: 45%;
+    height: 45%;
+    float: right;
+    padding-right: 20vw;
+    padding-left: 5vw;
+}
+
+.PictureL{
+    width: 43%;
+    height: 43%;
+    float: left;
+    padding-left: 20vw;
+}
+
+
+.TextLeft{
+    padding-top: 20vh;
+    display: flex;
+}
+
+.TextRight{
+    padding-top: 20vh;
+    display: flex;
+}
+
+
+.BackImg{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+}
+
+.Spaces{
+    padding-top: 10%;
+}

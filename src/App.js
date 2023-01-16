@@ -18,12 +18,12 @@ function App() {
   return (
     <div>
       {navBar}
-      <div className="App">
+      <div className='App'>
         <Router>
           <Routes>
             <Route path='/SignUp' element={<SignUp />} />
             <Route path='/SignIn' element={<SignIn />} />
-            <Route path='/Home' element={<Homepage />} />
+            <Route path='/Home' index element={<Homepage />} />
           </Routes>
         </Router>
       </div>
