@@ -2,7 +2,7 @@ const courses = [
   {
     id: 1000,
     title: "Key Concepts in Computer Science",
-    description: "COMP-1000",
+    description: "COMP-1000 ",
     lectures:[
       {
           id: 1000,
@@ -49,6 +49,12 @@ const courses = [
       id: 2057,
       title: "Intro to the Internet",
       description: "COMP-2057",
+      lectures:[
+        {
+            id: 2057,
+            description: "TBA",
+        }
+      ]
 
     },
     {

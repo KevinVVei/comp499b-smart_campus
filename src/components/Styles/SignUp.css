@@ -58,6 +58,10 @@ input {
   font-weight: bold;
 }
 
+.submit-btn:enabled:hover {
+  cursor: pointer;
+}
+
 .submit-btn:disabled {
   background-color: #1e2128;
   border: #F2C300 1px solid;

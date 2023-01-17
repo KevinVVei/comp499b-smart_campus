@@ -165,7 +165,9 @@ function SignUp() {
               <FaInfoCircle />
               Must match the password input field.
             </p>
-            <button className="submit-btn" disabled={!validUserN || !validPwd || !validMatch ? true : false}>Sign Up</button>
+              <button className="submit-btn" disabled={!validUserN || !validPwd || !validMatch ? true : false}>
+                Sign Up
+              </button>
           </form>
           <span>Already has an account?</span>
           <span><Link to='/SignIn'>Sign In</Link></span>
