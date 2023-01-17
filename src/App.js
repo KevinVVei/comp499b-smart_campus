@@ -23,7 +23,7 @@ function App() {
           
           <div className='content'>
           <Routes>
-            <Route path='/' element={<Homepage />} />
+            <Route path='/' index element={<Homepage />} />
             <Route path='/About' element={<About />} />
             <Route path='/CourseHome' element={<CourseHome />} />
             <Route path='/CourseHome/courses/:courseId' element={<Course />} />
