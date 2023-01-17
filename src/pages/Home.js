@@ -1,45 +1,44 @@
-import React from 'react'
-import './Home.css'
-import backgroundImg from './UWin.jpg'
-import course from './course.jpg'
-import event from './timetable.png'
-import UW from './UW.jpg'
+import React from 'react';
+import {Link} from 'react-router-dom';
+import './Home.css';
+import course from '../assets/images/course.jpg';
+import event from '../assets/images/timetable.png';
+import UW from '../assets/images/UW.jpg';
 
-export default class Homepage extends React.Component{
-    render(){
+function Homepage() {
         return(
-            <div className='HomepageBackground'>
-                <img className='BackImg' alt='BackImg' src={backgroundImg}></img>
+            <div className='home-page'>
+             
                 <h1 className='HomeTitle'>
                     Welcome to the UWin Smart Campus!
                 </h1>
             
                 <div className='TextLeft'>
-                    <div className='TextL'>
+                    <h1>
                         Don't know what courses that your degree has? <br />
                         Don't know courses' details?<br />
                         Or don't know how to plan your study?<br />
-                        Don't Worry! We will help you <a>HERE!</a><br />
-                    </div>
-                    <img className='PictureR' alt='course' src={course}></img>
+                        Don't Worry! We will help you <Link to='/CourseHome'>HERE!</Link><br />
+                    </h1>
+                    <img alt='course' src={course}></img>
                 </div>
 
                 <div className='TextRight'>
-                    <img className='PictureL' alt='Event' src={event}></img>
-                    <div className='TextR'>
+                    <img alt='Event' src={event}></img>
+                    <h1>
                         Needing to set a reminder for something? <br />
                         Having a future plan? <br />
                         Looking for a place to put all these things? <br />
-                        Check your <a>Event Table</a> !  
-                    </div>
+                        Check your <Link to='/Event'>Event table</Link> !  
+                    </h1>
                 </div>
 
                 <div className='TextLeft'>
-                    <div className='TextL'>
+                    <h1>
                         Need more information from U of Win? <br />
                         Check the University <a href='https://www.uwindsor.ca/'>Website</a> !
-                    </div>
-                    <img className='PictureR' alt='logo' src={UW}></img>
+                    </h1>
+                    <img alt='logo' src={UW}></img>
                 </div>
 
                 <div className='Spaces'>
@@ -47,6 +46,6 @@ export default class Homepage extends React.Component{
                 </div>
             </div>
         )
-
-    }
 }
+
+export default Homepage

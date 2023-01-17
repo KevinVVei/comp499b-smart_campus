@@ -1,0 +1,46 @@
+.event-details {
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+    margin-top: 100px;
+    border-radius: 5px;
+    background-color: #005596;
+}
+
+.event-details div {
+    position: relative;
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 180%;
+    background-color: white;
+}
+
+.event-details img {
+    width: 45%;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.event-details div  div {
+    width: 50%;
+    float: right;
+}
+
+.event-details button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.event-details button:hover {
+    color: white;
+    background-color: #005596;
+}
+
+

@@ -1,24 +1,42 @@
+.register-form {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
 section {
-  width: 100%;
+  margin: auto;
   max-width: 420px;
   min-height: 400px;
   display: flex;
+  border-radius: 5px;
   flex-direction: column;
   justify-content: flex-start;
   padding: 1rem;
-  background-color: #295cd3;
+  background-color: #005596;
+}
+
+section h1 {
+  text-align: center;
+  color: white;
+}
+
+section p {
+  text-align: center;
+  color: white;
+}
+
+section a {
+  color: #F2C300;
 }
 
 form {
+  width: 75%;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   flex-grow: 1;
   padding-bottom: 1rem;
-}
-
-a:visited {
-  color: #fac03d;
 }
 
 input {
@@ -29,20 +47,20 @@ input {
   color: black;
 }
 
-button {
+.submit-btn {
   margin-top: 1rem;
   padding: 0.5rem;
   border: none;
   font-size: 22px;
   border-radius: 0.25rem;
-  background-color: #fac03d;
+  background-color: #F2C300;
   color: #282c34;
   font-weight: bold;
 }
 
-button:disabled {
+.submit-btn:disabled {
   background-color: #1e2128;
-  border: #fac03d 1px solid;
+  border: #F2C300 1px solid;
   color: #282c34;
 }
 
@@ -53,7 +71,7 @@ button:disabled {
   font-weight: 500;
   margin-bottom: 1rem;
   padding: 0.25rem;
-  background-color: rgb(229, 206, 35);
+  background-color: #F2C300;
   border-radius: 0.5rem;
 }
 

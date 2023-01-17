@@ -1,0 +1,42 @@
+#summary {
+    width: 80%;
+    height: 100px;
+    margin: auto;
+    padding: 35px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #005596;
+}
+
+#summary div {
+    height: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    text-decoration: none; 
+    line-height: 150%;
+}
+ 
+#summary div h2 {
+    margin-top: 0;
+}
+
+#summary div p {
+    margin-bottom: -30px;
+}
+
+#summary div button {
+    position: absolute;
+    right: 24%;
+    margin-top: 25px;
+    border-radius: 5px;
+    box-shadow: 1px 1px;
+    font-size: large;
+    color: black;  
+    background-color: #F2C300;
+}
+
+#summary div button:hover {
+    color: white;
+    background-color: #005596;
+}

@@ -1,12 +1,12 @@
-import { useRef, useState, useEffect } from "react";
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { FaCheck, FaTimes, FaInfoCircle } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 import "./Styles/SignUp.css";
 
 const user_Regex = /^[a-zA-Z0-9]{5,20}$/;
 const pwd_Regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,20})/;
 
-const SignUp = () => {
+function SignUp() {
   const userRef = useRef();
   const errRef = useRef();
 
@@ -62,11 +62,11 @@ const SignUp = () => {
   };
 
   return (
-    <>
+    <div className="register-form">
       {success ? (
         <section>
           <h1>Success!</h1>
-          <p><a href="/SignIn">Sign In</a>
+          <p><Link to="/SignIn">Sign In</Link>
           </p>
         </section>
       ) : (
@@ -74,7 +74,7 @@ const SignUp = () => {
           <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">
             {errMsg}
           </p>
-          <h1>Sign Up</h1>
+          <h1>Register</h1>
           <form onSubmit={handleSubmit}>
             {/* Username */}
             <label htmlFor="username">
@@ -165,13 +165,13 @@ const SignUp = () => {
               <FaInfoCircle />
               Must match the password input field.
             </p>
-            <button disabled={!validUserN || !validPwd || !validMatch ? true : false}>Sign Up</button>
+            <button className="submit-btn" disabled={!validUserN || !validPwd || !validMatch ? true : false}>Sign Up</button>
           </form>
           <span>Already has an account?</span>
-          <span><a href='/SignIn'>Sign In</a></span>
+          <span><Link to='/SignIn'>Sign In</Link></span>
         </section>
       )}
-    </>
+    </div>
   )
 }
 

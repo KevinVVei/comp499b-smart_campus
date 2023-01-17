@@ -1,12 +1,16 @@
-* {
-  margin: 0;
-  padding: 0;
+body {
+  max-width: 100%;
+  margin: auto;
   box-sizing: border-box;
 }
 
-.App {
-  display: flex;
+.navbar {
+  position: absolute;
+  z-index: 1;
+}
+
+.content {
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  margin-top: 55px;
 }

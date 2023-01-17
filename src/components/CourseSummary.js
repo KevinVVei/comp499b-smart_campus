@@ -1,25 +1,24 @@
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './CourseSummary.css';
 
 function CourseSummary(props) {
   return (
-    <section key={props.course.id} className="summary">
+    <div key={props.course.id} id="summary">
       <div>
-        <div className="title">
-          <h2>
-            <Link
-              className="no-underline cursor-pointer"
-              to={'/coursehome/courses/' + props.course.id}>
-              {props.course.title}
-            </Link>
-          </h2>
-        </div>
+        <h2>
+          {props.course.title}
+        </h2>
+
         <p>
-          <Link className="no-underline cursor-pointer" to={'/coursehome/courses/' + props.course.id}>
-            {props.course.description}
-          </Link>
+          {props.course.description}
         </p>
-      </div>
-    </section>
+        
+        <Link to={'/coursehome/courses/' + props.course.id}>
+          <button>More</button>
+        </Link>
+      </div>  
+    </div>
   )
 }
 

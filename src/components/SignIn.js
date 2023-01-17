@@ -1,5 +1,5 @@
-import { useRef, useState, useEffect } from "react";
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { FaCheck, FaTimes, FaInfoCircle } from "react-icons/fa";
 import "./Styles/SignUp.css";
 
@@ -62,11 +62,11 @@ const SignIn = () => {
   };
 
   return (
-    <>
+    <div className="register-form">
       {success ? (
         <section>
           <h1>Success!</h1>
-          <p><a href="/SignIn">Sign In</a>
+          <p><Link to='/SignIn' >Sign In</Link>
           </p>
         </section>
       ) : (
@@ -138,13 +138,13 @@ const SignIn = () => {
               Allowed special characters: <span aria-label="exclamation mark">!</span><span aria-label="at mark">@</span><span aria-label="hashtag">#</span>
               <span aria-label="percent">%</span><span aria-label="dont know name">&</span>
             </p>
-            <button type="submit">Sign In</button>
+            <button className="submit-btn" type="submit">Sign In</button>
             </form>
             <span>Don't have an account?</span>
-          <span><a href='/SignUp'>Sign Up</a></span>
+          <span><Link to='/SignUp'>Sign Up</Link></span>
         </section>
       )}
-    </>
+    </div>
   )
 }
 

@@ -1,66 +1,58 @@
+.home-page {
+    width: 70%;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+
+.home-page a {
+    text-decoration: none;
+    color: #F2C300;
+}
+
 .HomeTitle{
-    color: yellow;
+    color: black;
     text-align: center;
-    padding-top: 10vh;
+    padding: 10vh;
+    border: 5px solid #005596;
+    background-color: #F2C300;
 }
 
-.HomepageBackground{
-    align-self: flex-start;
-
+.TextLeft {
+    padding-top: 20vh;
+    display: flex;
 }
 
-.TextL{
-    width: 50vw;
+.TextLeft h1 {
+    margin: auto;
     color: black;
     font-size: 24px;
     font-weight: bold;
-    padding-left: 20vw;
+    line-height: 150%;
 }
 
-.TextR{
-    width: 50vw;
-    color: black;
-    font-size: 24px;
-    font-weight: bold;
-    padding-right: 20vw;
-    padding-left: 5vw;
-    float: right;
-}
-
-.PictureR{
-    width: 45%;
+.TextLeft img {
+    width: 50%;
     height: 45%;
     float: right;
-    padding-right: 20vw;
-    padding-left: 5vw;
 }
 
-.PictureL{
-    width: 43%;
+.TextRight {
+    padding-top: 20vh;
+    display: flex;
+}
+
+.TextRight h1 {
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    float: right;
+    line-height: 150%;
+    text-align: right;
+}
+
+.TextRight img {
+    width: 50%;
     height: 43%;
     float: left;
-    padding-left: 20vw;
-}
-
-
-.TextLeft{
-    padding-top: 20vh;
-    display: flex;
-}
-
-.TextRight{
-    padding-top: 20vh;
-    display: flex;
-}
-
-
-.BackImg{
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    z-index: -1;
-}
-
-.Spaces{
-    padding-top: 10%;
 }

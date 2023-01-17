@@ -1,0 +1,35 @@
+.course-page {
+    width: 50%;
+    margin: auto;
+}
+
+
+.course-page header {
+    padding: 10px;
+    margin-top: 65px;
+    border-radius: 5px 5px 0px 0px;
+    border: 3px solid #F2C300;
+}
+
+.course-page a {
+    color: black;
+    font-size: large;
+}
+
+.course-page a:hover {
+    color: #F2C300;
+}
+
+#button-primary-icon {
+    float: right;
+}
+
+.detail {
+    max-width: 100%;
+    border-radius: 0px 0px 5px 5px;
+    margin: 0;
+}
+
+.course-page div a {
+    color: #F2C300;
+}
