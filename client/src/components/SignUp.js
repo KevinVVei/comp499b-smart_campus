@@ -12,6 +12,7 @@ function SignUp() {
 
   const [usersData, setUsersData] = useState([]);
 
+  {/*on first render this gets the data loaded from the api at the specified link and stores it into the eventData array*/}
   useEffect(() => {
     Axios.get('http://localhost:4000/api/users').then(response => {
       setUsersData(response.data);
@@ -24,7 +25,6 @@ function SignUp() {
 
   const [email, setEmail] = useState("");
   const [validEmailN, setValidEmailN] = useState(false);
-  const [emailNFocus, setEmailNFocus] = useState(false);
 
   const [usern, setUser] = useState("");
   const [validUserN, setValidUserN] = useState(false);
@@ -82,11 +82,11 @@ function SignUp() {
       setErrMsg("Please enter a valid email, username and password");
       return;
     } else {
-      const eml = email;
-
+      {/*checks the data from the api for the appearance of a user with the inputted email and username. they return true if a match is found*/}
       const emailMatch = usersData.some(element => element.email === email);
       const usernameMatch = usersData.some(element => element.username === usern);
 
+      {/*adds user to database or outputs message informing an inputs in use*/}
       if(!emailMatch && !usernameMatch){
         Axios.post('http://localhost:4000/api/insertuser', {email: email, usern: usern, pwd: pwd});
 
@@ -141,8 +141,6 @@ function SignUp() {
               required
               aria-invalid={validEmailN ? "false" : "true"}
               aria-describedby="uidnote"
-              onFocus={() => setEmailNFocus(true)}
-              onBlur={() => setEmailNFocus(false)}
             />
 
             {/* Username */}

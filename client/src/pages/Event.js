@@ -7,18 +7,21 @@ function Event() {
   const [eventData, setEventData] = useState([]);
   const [eventId, setEventId] = useState();
 
+  {/*on first render this gets the data loaded from the api at the specified link and stores it into the eventData array*/}
   useEffect(() => {
     Axios.get('http://localhost:4000/api/events').then(response => {
       setEventData(response.data);
     });
   }, []); 
 
+  {/*this functions called to display the overlay of the popup and disable scrolling*/}
   function on(element) {
     setEventId(element);
     document.getElementById("overlay").style.display = "block";
     document.body.classList.add('disable-scroll');
   };
 
+  {/*this function is called to hide the overlay of the popup and ebable scrolling*/}
   function off() {
     document.getElementById("overlay").style.display = "none";
     document.body.classList.remove('disable-scroll');
@@ -28,6 +31,7 @@ function Event() {
     <div class='events-page'>
       <img src={require('../assets/images/banner.jpg')} alt='uwindsor banner' />
 
+      {/*this div will start as hidden and then displayed to show the details of the event that was selected for details*/}
       <div id='overlay'>
             <div className='event-details'>
               <div>
@@ -46,6 +50,7 @@ function Event() {
             </div>
       </div>
 
+      {/*displays all events stored from the api*/}
       <div className='events'>
         {eventData.map((val) => {
           return (

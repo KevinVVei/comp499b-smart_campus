@@ -62,8 +62,10 @@ const SignIn = () => {
       setErrMsg("Please enter a valid username and password");
       return;
     } else {
+      {/*checks the data from the api for the appearance of a user with the inputted email and username. they return true if a match is found*/}
       const inputMatch = usersData.some(element => (element.password === pwd && element.username === usern));
 
+      {/*logs user in or outputs message informing an inputs is incorrect*/}
       if(inputMatch){
         setSuccess(true);
       } else {

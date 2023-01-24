@@ -67,6 +67,5 @@ nav {
 }
 
 #user-icon {
-  background-color: white;
-  border-radius: 5px;
+  display: none;
 }

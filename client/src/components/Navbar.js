@@ -35,6 +35,11 @@ function Navbar() {
                     Sign up
                 </Link>
             </li>
+            <li id='user-icon'>
+                <Link to='/Profile'>
+                    {/*change to users name */}
+                </Link>
+            </li>
         </ul>
             
         </nav>

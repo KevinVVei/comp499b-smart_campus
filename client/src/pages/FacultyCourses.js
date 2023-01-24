@@ -8,20 +8,24 @@ function FacultyCourses(props) {
     const [courseData, setCourseData] = useState([]);
     const [courseId, setCourseId] = useState();
 
+    {/*this variable is used to store the state data passed from a link on the CourseHome page*/}
     const location = useLocation();
 
+    {/*on first render this gets the data loaded from the api at the specified link and stores it into the courseData array*/}
     useEffect(() => {
         Axios.get('http://localhost:4000/api/courses').then(response => {
             setCourseData(response.data);
         });
     }, []);
 
+    {/*this functions called to display the overlay of the popup and disable scrolling*/}
     function on(element) {
         setCourseId(element);
         document.getElementById("overlay").style.display = "block";
         document.body.classList.add('disable-scroll');
     };
     
+    {/*this function is called to hide the overlay of the popup and ebable scrolling*/}
     function off() {
         document.getElementById("overlay").style.display = "none";
         document.body.classList.remove('disable-scroll');
@@ -30,9 +34,10 @@ function FacultyCourses(props) {
     return (
         <div className="CoursePage">
             <header>
-                <h1 className="CoursePageTitle">Faculty of { location.state.name } Courses</h1>
+                <h1 className="CoursePageTitle">Faculty of { location.state.name } Courses</h1> {/*sets the title to the passed faculty name*/}
             </header>
 
+            {/*this div will start as hidden and then displayed to show the details of the course that was selected for more*/}
             <div id='overlay'>
                 <div className='course-details'>
                         {courseData.filter(course => course.course_id === courseId).map(filteredCourse1 => (
@@ -51,6 +56,7 @@ function FacultyCourses(props) {
                 </div>
             </div>
 
+            {/*displays all courses stored from the api*/}
             {courseData.filter(course => course.faculty === location.state.name).map(filteredCourse => {
                 return (
                 <div key={filteredCourse.course_id} id="summary">

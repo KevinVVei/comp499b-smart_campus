@@ -10,8 +10,9 @@ import Lecture from './pages/Lecture';
 import Event from './pages/Event';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
-import Error from './pages/Error';
+import Profile from './pages/Profile';
 import FacultyCourses from './pages/FacultyCourses';
+import Error from './pages/Error';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
             <Route path='/Event' element={<Event />} />
             <Route path='/SignIn' element={<SignIn />} />
             <Route path='/SignUp' element={<SignUp />} />
+            <Route path='/Profile' element={<Profile />} />
             <Route path='*' element={<Error />} />
           </Routes>
           </div>
