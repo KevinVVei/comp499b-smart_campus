@@ -1,8 +1,8 @@
 const courses = [
   {
     id: 1000,
-    title: "Key Concepts in Computer Science",
-    description: "COMP-1000 ",
+    title: "COMP-1000: Key Concepts in Computer Science",
+    description: "The objectives of this course are to excite students' interest in computer science and to give students a precise understanding of a number of difficult concepts that are fundamental to modern computer science. Topics may include: induction and recursion; algebraic characterization; syntax; semantics; formal logic; soundness, completeness, and decidability; specification, algorithm, and determinism; complexity. (Restricted to students registered in programs offered wholly or jointly by Computer Science or by Mathematics and Statistics, or with approval of Computer Science.) (3 lecture hours and 1.5 laboratory hours a week).",
     lectures:[
       {
           id: 1000,

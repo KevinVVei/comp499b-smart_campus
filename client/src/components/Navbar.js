@@ -1,28 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import './Navbar.css';
+import './Styles/Navbar.css';
 
 function Navbar() {
     return (
       <nav>
-        <Link to='/' className='logo'>
+        <Link to='/' className='logo' >
           <img src={require('../assets/images/uwin_logo.png')} alt='Uwindsor logo' />
         </Link>
 
         <ul className='navbar-buttons'>
             <li>
-                <Link to='/'>
+                <Link to='/' id='home-btn'>
                     Home
                 </Link>
             </li>
             <li>
-                <Link to='/About'>
-                    About
-                </Link>
-            </li>
-            <li>
                 <Link to='/CourseHome'>
-                    Course
+                    Courses
                 </Link>
             </li>
             <li>

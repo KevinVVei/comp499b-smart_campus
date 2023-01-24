@@ -1,16 +1,32 @@
 import React, { useRef, useState, useEffect } from "react";
 import { FaCheck, FaTimes, FaInfoCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import Axios from 'axios';
 import "./Styles/SignUp.css";
 
+const email_Regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 const user_Regex = /^[a-zA-Z0-9]{5,20}$/;
-const pwd_Regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,20})/;
+const pwd_Regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_-])(?=.{8,20})/;
 
 function SignUp() {
+
+  const [usersData, setUsersData] = useState([]);
+
+  useEffect(() => {
+    Axios.get('http://localhost:4000/api/users').then(response => {
+      setUsersData(response.data);
+    });
+  }, []); 
+
+  const emailRef = useRef();
   const userRef = useRef();
   const errRef = useRef();
 
-  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
+  const [validEmailN, setValidEmailN] = useState(false);
+  const [emailNFocus, setEmailNFocus] = useState(false);
+
+  const [usern, setUser] = useState("");
   const [validUserN, setValidUserN] = useState(false);
   const [userNFocus, setUserNFocus] = useState(false);
 
@@ -26,15 +42,22 @@ function SignUp() {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    userRef.current.focus();
+    emailRef.current.focus();
   }, []);
 
   useEffect(() => {
-    const result = user_Regex.test(user);
+    const result = email_Regex.test(email);
     console.log(result);
-    console.log(user);
+    console.log(email);
+    setValidEmailN(result);
+  }, [email]);
+
+  useEffect(() => {
+    const result = user_Regex.test(usern);
+    console.log(result);
+    console.log(usern);
     setValidUserN(result);
-  }, [user]);
+  }, [usern]);
 
   useEffect(() => {
     const result = pwd_Regex.test(pwd);
@@ -47,35 +70,81 @@ function SignUp() {
 
   useEffect(() => {
     setErrMsg("");
-  }, [user, pwd, matchPwd]);
+  }, [email, usern, pwd, matchPwd]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userInput = user_Regex.test(user);
+    const emailInput = email_Regex.test(email);
+    const userInput = user_Regex.test(usern);
     const pwdInput = pwd_Regex.test(pwd);
-    if(!userInput || !pwdInput) {
-      setErrMsg("Please enter a valid username and password");
+
+    if(!emailInput || !userInput || !pwdInput) {
+      setErrMsg("Please enter a valid email, username and password");
       return;
     } else {
-      setSuccess(true);
+      const eml = email;
+
+      const emailMatch = usersData.some(element => element.email === email);
+      const usernameMatch = usersData.some(element => element.username === usern);
+
+      if(!emailMatch && !usernameMatch){
+        Axios.post('http://localhost:4000/api/insertuser', {email: email, usern: usern, pwd: pwd});
+
+        setSuccess(true);
+      } else {
+        if(!emailMatch && usernameMatch){
+          alert("username in use");
+        } 
+        else if (emailMatch && !usernameMatch){
+          alert("email in use");
+        } 
+        else {
+          alert("email and username in use");
+        }
+      }
     }
   };
 
   return (
     <div className="register-form">
       {success ? (
-        <section>
-          <h1>Success!</h1>
+        <section className="success">
+          <h1>Successfully registerd account!</h1>
           <p><Link to="/SignIn">Sign In</Link>
           </p>
         </section>
       ) : (
-        <section>
+        <section id="signup">
           <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">
             {errMsg}
           </p>
           <h1>Register</h1>
           <form onSubmit={handleSubmit}>
+            {/* Email */}
+            <label htmlFor="username">
+              Email:
+              {/* if the email is valid, the icon will be green, otherwise it will be red */}
+              <span className={validEmailN ? "valid" : "hide"}>
+                <FaCheck />
+              </span>
+              {/* if the email is valid and empty, the error icon will be hidden */}
+              <span className={validEmailN || !email ? "hide" : "invalid"}>
+                <FaTimes />
+              </span>
+            </label>
+            <input
+              type="text"
+              id="email"
+              ref={emailRef}
+              autoComplete="off"
+              onChange={(e => setEmail(e.target.value))}
+              required
+              aria-invalid={validEmailN ? "false" : "true"}
+              aria-describedby="uidnote"
+              onFocus={() => setEmailNFocus(true)}
+              onBlur={() => setEmailNFocus(false)}
+            />
+
             {/* Username */}
             <label htmlFor="username">
               Username:
@@ -84,7 +153,7 @@ function SignUp() {
                 <FaCheck />
               </span>
               {/* if the username is valid and empty, the error icon will be hidden */}
-              <span className={validUserN || !user ? "hide" : "invalid"}>
+              <span className={validUserN || !usern ? "hide" : "invalid"}>
                 <FaTimes />
               </span>
             </label>
@@ -101,7 +170,7 @@ function SignUp() {
               onBlur={() => setUserNFocus(false)}
             />
             {/* if the focus in on username input, user is typing not empty, and the username is not valid, then display the error message, otherwise errmsg go away */}
-            <p id="uidNote" className={userNFocus && user && !validUserN ? "instructions" : "offscreen"}>
+            <p id="uidNote" className={userNFocus && usern && !validUserN ? "instructions" : "offscreen"}>
               <FaInfoCircle />
               5 to 20 characters. <br />
               Must begin with letter.<br />
@@ -136,7 +205,7 @@ function SignUp() {
               8 to 20 characters. <br />
               Must contain at least one uppercase letter, one lowercase letter, one number, and one special character.<br />
               Allowed special characters: <span aria-label="exclamation mark">!</span><span aria-label="at mark">@</span><span aria-label="hashtag">#</span>
-              <span aria-label="percent">%</span><span aria-label="dont know name">&</span>
+              <span aria-label="percent">%</span><span aria-label="dont know name">&<span aria-label="underscore">_<span aria-label="dash">-</span></span></span>
             </p>
 
             <label htmlFor="confirm_pwd">

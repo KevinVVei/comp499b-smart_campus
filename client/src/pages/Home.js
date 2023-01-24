@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './Home.css';
+import './Styles/Home.css';
 import course from '../assets/images/course.jpg';
 import event from '../assets/images/timetable.png';
 import UW from '../assets/images/UW.jpg';

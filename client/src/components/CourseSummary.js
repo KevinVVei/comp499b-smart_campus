@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './CourseSummary.css';
+import './Styles/CourseSummary.css';
 
 function CourseSummary(props) {
   return (

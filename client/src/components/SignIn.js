@@ -1,26 +1,32 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { FaCheck, FaTimes, FaInfoCircle } from "react-icons/fa";
-import "./Styles/SignUp.css";
+import Axios from 'axios';
+import "./Styles/SignIn.css";
 
 const user_Regex = /^[a-zA-Z0-9]{5,20}$/;
-const pwd_Regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,20})/;
+const pwd_Regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_-])(?=.{8,20})/;
 
 const SignIn = () => {
+
+  const [usersData, setUsersData] = useState([]);
+
+  useEffect(() => {
+    Axios.get('http://localhost:4000/api/users').then(response => {
+      setUsersData(response.data);
+    });
+  }, []); 
+
   const userRef = useRef();
   const errRef = useRef();
 
-  const [user, setUser] = useState("");
+  const [usern, setUser] = useState("");
   const [validUserN, setValidUserN] = useState(false);
   const [userNFocus, setUserNFocus] = useState(false);
 
   const [pwd, setPwd] = useState("");
   const [validPwd, setValidPwd] = useState(false);
   const [pwdFocus, setPwdFocus] = useState(false);
-
-  const [matchPwd, setMatchPwd] = useState("");
-  const [validMatch, setValidMatch] = useState(false);
-  const [matchFocus, setMatchFocus] = useState(false);
 
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
@@ -30,47 +36,52 @@ const SignIn = () => {
   }, []);
 
   useEffect(() => {
-    const result = user_Regex.test(user);
+    const result = user_Regex.test(usern);
     console.log(result);
-    console.log(user);
+    console.log(usern);
     setValidUserN(result);
-  }, [user]);
+  }, [usern]);
 
   useEffect(() => {
     const result = pwd_Regex.test(pwd);
     console.log(result);
     console.log(pwd);
     setValidPwd(result);
-    const match = pwd === matchPwd;
-    setValidMatch(match);
-  }, [pwd, matchPwd]);
+  }, [pwd]);
 
   useEffect(() => {
     setErrMsg("");
-  }, [user, pwd, matchPwd]);
+  }, [usern, pwd]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userInput = user_Regex.test(user);
+    const userInput = user_Regex.test(usern);
     const pwdInput = pwd_Regex.test(pwd);
+
     if(!userInput || !pwdInput) {
       setErrMsg("Please enter a valid username and password");
       return;
     } else {
-      setSuccess(true);
+      const inputMatch = usersData.some(element => (element.password === pwd && element.username === usern));
+
+      if(inputMatch){
+        setSuccess(true);
+      } else {
+        alert("username or password is incorrect");
+      }
     }
   };
 
   return (
-    <div className="register-form">
+    <div className="signin-form">
       {success ? (
-        <section>
+        <section className="success">
           <h1>Success!</h1>
-          <p><Link to='/SignIn' >Sign In</Link>
+          <p><Link to='/' >Home</Link>
           </p>
         </section>
       ) : (
-        <section>
+        <section id="form-container">
           <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">
             {errMsg}
           </p>
@@ -84,7 +95,7 @@ const SignIn = () => {
                 <FaCheck />
               </span>
               {/* if the username is valid and empty, the error icon will be hidden */}
-              <span className={validUserN || !user ? "hide" : "invalid"}>
+              <span className={validUserN || !usern ? "hide" : "invalid"}>
                 <FaTimes />
               </span>
             </label>
@@ -101,7 +112,7 @@ const SignIn = () => {
               onBlur={() => setUserNFocus(false)}
             />
             {/* if the focus in on username input, user is typing not empty, and the username is not valid, then display the error message, otherwise errmsg go away */}
-            <p id="uidNote" className={userNFocus && user && !validUserN ? "instructions" : "offscreen"}>
+            <p id="uidNote" className={userNFocus && usern && !validUserN ? "instructions" : "offscreen"}>
               <FaInfoCircle />
               5 to 20 characters. <br />
               Must begin with letter.<br />
@@ -136,7 +147,7 @@ const SignIn = () => {
               8 to 20 characters. <br />
               Must contain at least one uppercase letter, one lowercase letter, one number, and one special character.<br />
               Allowed special characters: <span aria-label="exclamation mark">!</span><span aria-label="at mark">@</span><span aria-label="hashtag">#</span>
-              <span aria-label="percent">%</span><span aria-label="dont know name">&</span>
+              <span aria-label="percent">%</span><span aria-label="dont know name">&<span aria-label="underscore">_<span aria-label="dash">-</span></span></span>
             </p>
             <button className="submit-btn" type="submit">Sign In</button>
             </form>
