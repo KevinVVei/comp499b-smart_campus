@@ -1,8 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import SignIn from './SignIn';
+import Profile from '../pages/Profile';
 import './Styles/Navbar.css';
 
-function Navbar() {
+function Navbar () {
+    
+    const [token, setToken] = useState(sessionStorage.getItem('token'));
+    const [isLogin, setLogin] = useState(false);
+  
+    useEffect(() => {
+      if (token) {
+        setLogin(true);
+      } else {
+          setLogin(false);
+        }
+    }, [token]);
+
+    const handleSignOut = async (e) => {
+        e.preventDefault();
+        setLogin(false);
+        setToken(null);
+        sessionStorage.removeItem('token');
+        window.location.href = '/';
+    }
+
     return (
       <nav>
         <Link to='/' className='logo' >
@@ -25,10 +47,18 @@ function Navbar() {
                     Events
                 </Link>
             </li>
-            <li >
-                <Link to='/SignIn'>
-                    Sign In
-                </Link>
+            <li>
+                    {isLogin ? (
+                    <div className='dropdown-list'>
+                        <Link id='signup-button' to='/Profile'>Profile</Link>
+                        <Link id='signup-button' onClick={handleSignOut} >Sign Out</Link>
+                    </div>
+                ) : (
+                    <Link to='/SignIn' 
+                        >Sign In</Link>                               
+                )}
+     
+                
             </li>
             <li>
                 <Link to='/SignUp' id='signup-button'>
@@ -46,6 +76,6 @@ function Navbar() {
     )
 }
 
-export default Navbar
+export default Navbar;
 
 

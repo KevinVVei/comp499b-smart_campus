@@ -7,12 +7,12 @@ import "./Styles/SignIn.css";
 const user_Regex = /^[a-zA-Z0-9]{5,20}$/;
 const pwd_Regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_-])(?=.{8,20})/;
 
-const SignIn = () => {
+function SignIn () {
 
   const [usersData, setUsersData] = useState([]);
 
   useEffect(() => {
-    Axios.get('http://localhost:4000/api/users').then(response => {
+    Axios.get('http://localhost:4000/api/student_users').then(response => {
       setUsersData(response.data);
     });
   }, []); 
@@ -30,6 +30,7 @@ const SignIn = () => {
 
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
+  const [token, setToken] = useState();
 
   useEffect(() => {
     userRef.current.focus();
@@ -37,21 +38,22 @@ const SignIn = () => {
 
   useEffect(() => {
     const result = user_Regex.test(usern);
-    console.log(result);
-    console.log(usern);
+    // console.log(result);
+    // console.log(usern);
     setValidUserN(result);
   }, [usern]);
 
   useEffect(() => {
     const result = pwd_Regex.test(pwd);
-    console.log(result);
-    console.log(pwd);
+    // console.log(result);
+    // console.log(pwd);
     setValidPwd(result);
   }, [pwd]);
 
   useEffect(() => {
     setErrMsg("");
   }, [usern, pwd]);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -65,9 +67,19 @@ const SignIn = () => {
       {/*checks the data from the api for the appearance of a user with the inputted email and username. they return true if a match is found*/}
       const inputMatch = usersData.some(element => (element.password === pwd && element.username === usern));
 
-      {/*logs user in or outputs message informing an inputs is incorrect*/}
-      if(inputMatch){
+      {/*logs user in or outputs message informing an inputs is incorrect*/ }
+      // save the user data to local storage with token
+
+      if (inputMatch) {  
         setSuccess(true);
+        const response = await Axios.post('http://localhost:4000/api/SignIn', {
+          usern: usern,
+          pwd: pwd
+        });
+        console.log(response.data);
+        setToken(response.data.token);
+        sessionStorage.setItem('token', response.data.token);
+        sessionStorage.setItem('user', usern);
       } else {
         alert("username or password is incorrect");
       }
@@ -79,7 +91,10 @@ const SignIn = () => {
       {success ? (
         <section className="success">
           <h1>Success!</h1>
-          <p><Link to='/' >Home</Link>
+          <span>2 seconds to refresh</span>
+          <p><Link to='/'
+            onClick={setTimeout(() => window.location.reload() , 2000)}
+            >Home</Link>
           </p>
         </section>
       ) : (
@@ -151,7 +166,7 @@ const SignIn = () => {
               Allowed special characters: <span aria-label="exclamation mark">!</span><span aria-label="at mark">@</span><span aria-label="hashtag">#</span>
               <span aria-label="percent">%</span><span aria-label="dont know name">&<span aria-label="underscore">_<span aria-label="dash">-</span></span></span>
             </p>
-            <button className="submit-btn" type="submit">Sign In</button>
+            <button className="submit-btn" type="submit" >Sign In</button>
             </form>
             <span>Don't have an account?</span>
           <span><Link to='/SignUp'>Sign Up</Link></span>

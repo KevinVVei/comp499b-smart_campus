@@ -69,3 +69,8 @@ nav {
 #user-icon {
   display: none;
 }
+.dropdown-list {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+}

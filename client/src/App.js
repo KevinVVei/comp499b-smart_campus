@@ -16,6 +16,16 @@ import Error from './pages/Error';
 
 function App() {
 
+  const [token, setToken] = useState(sessionStorage.getItem('token'));
+  const [isLogin, setLogin] = useState(false);
+
+  useEffect(() => {
+    if (token) {
+      setLogin(true);
+    }
+  }, [token]);
+
+
   return (
         <Router>
           <div className='navbar'>
@@ -28,9 +38,29 @@ function App() {
             <Route path='/CourseHome' element={<CourseHome />} />
             <Route path='/FacultyCourses' element={<FacultyCourses />} />
             <Route path='/CourseHome/courses/:courseId' element={<Course />} />
-            <Route path='/CourseHome/courses/:courseId/details/:detailsId' element={<Lecture />} />
+            {/* <Route path='/CourseHome/courses/:courseId/details/:detailsId' element={<Lecture />} /> */}
             <Route path='/Event' element={<Event />} />
+          
+          
+          {isLogin ? (
+            <Route path='/SignIn' element={<Profile />} />
+          ) : (
             <Route path='/SignIn' element={<SignIn />} />
+          )}          
+
+
+            {/* <Route
+            
+            path='/SignIn' element={
+              <SignIn 
+                handleSignIn={setLogin}
+                updateJWT={setToken}
+              />} 
+            
+          /> */}
+          
+
+          
             <Route path='/SignUp' element={<SignUp />} />
             <Route path='/Profile' element={<Profile />} />
             <Route path='*' element={<Error />} />
