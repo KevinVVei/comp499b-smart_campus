@@ -9,7 +9,7 @@ const db = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: '499',
+    database: 'testdb',
     dateStrings: 'date'
 });
 
