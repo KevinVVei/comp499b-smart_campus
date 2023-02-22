@@ -60,9 +60,21 @@ function CourseHome() {
         </div>
       </Link>
 
-      <Link to='/FacultyCourses' state={{name: "Science"}}>
+      <Link to='/FacultyCourses' state={{name: "Computer Science"}}>
         <div className='faculty'>
           <h1>Science</h1>
+        </div>
+      </Link>
+      
+      <Link to='/FacultyCourses' state={{name: "Math"}}>
+        <div className='faculty'>
+          <h1>Mathematics</h1>
+        </div>
+      </Link>
+
+      <Link to='/FacultyCourses' state={{name: "Stat"}}>
+        <div className='faculty'>
+          <h1>Statistics</h1>
         </div>
       </Link>
 
