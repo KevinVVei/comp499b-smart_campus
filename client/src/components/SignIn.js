@@ -11,12 +11,6 @@ function SignIn () {
 
   const [usersData, setUsersData] = useState([]);
 
-  useEffect(() => {
-    Axios.get('http://localhost:4000/api/student_users').then(response => {
-      setUsersData(response.data);
-    });
-  }, []); 
-
   const userRef = useRef();
   const errRef = useRef();
 
@@ -64,25 +58,24 @@ function SignIn () {
       setErrMsg("Please enter a valid username and password");
       return;
     } else {
-      {/*checks the data from the api for the appearance of a user with the inputted email and username. they return true if a match is found*/}
-      const inputMatch = usersData.some(element => (element.password === pwd && element.username === usern));
 
-      {/*logs user in or outputs message informing an inputs is incorrect*/ }
-      // save the user data to local storage with token
-
-      if (inputMatch) {  
-        setSuccess(true);
-        const response = await Axios.post('http://localhost:4000/api/SignIn', {
-          usern: usern,
-          pwd: pwd
-        });
-        console.log(response.data);
-        setToken(response.data.token);
-        sessionStorage.setItem('token', response.data.token);
-        sessionStorage.setItem('user', usern);
-      } else {
-        alert("username or password is incorrect");
-      }
+      Axios.post('http://localhost:4000/api/SignIn', {
+        usern: usern,
+        pwd: pwd,
+      })
+      .then(response => {
+        if(response.data.message){
+          alert(response.data.message);
+        } else {
+          setSuccess(true);
+          setToken(response.data.token);
+          sessionStorage.setItem('token', response.data.token);
+          sessionStorage.setItem('user', usern);
+        }
+      })
+      .catch(err=> {
+        console.log(err)
+      });
     }
   };
 

@@ -67,7 +67,7 @@ function Navbar () {
                 </li> 
                 <li id='logout-icon'>
                     <Link to='/'>
-                        <img src={LogoutIcon} alt="user icon" />
+                        <img src={LogoutIcon} alt="user icon" onClick={handleSignOut}/>
                     </Link>
                 </li>
                 </>
