@@ -2,20 +2,19 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-const mysql = require("mysql");
 const jwt = require('jsonwebtoken');
-
-const db = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'testdb',
-    dateStrings: 'date'
-});
+const db = require("./config/db");
 
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
 
 app.get("/api/events", (req, res) => {
     const sqlSelect = "SELECT * FROM events"
@@ -25,20 +24,14 @@ app.get("/api/events", (req, res) => {
 })
 
 app.get("/api/courses", (req, res) => {
-    const sqlSelect = "SELECT * FROM courses"
+    const sqlSelect = "SELECT * FROM courses";
     db.query(sqlSelect, (err, result) => {
         res.send(result);
     });
 })
 
-app.get("/api/student_users", (req, res) => {
-    const sqlSelect = "SELECT * FROM student_users"
-    db.query(sqlSelect, (err, result) => {
-        res.send(result);
-    });
-})
 
-app.post("/api/insertuser", (req, res) => {
+app.post("/api/register", (req, res) => {
     const email = req.body.email;
     const usern = req.body.usern;
     const pwd = req.body.pwd;
