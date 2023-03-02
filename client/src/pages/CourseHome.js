@@ -13,11 +13,17 @@ function CourseHome() {
     const [courses, setCourses] = useState([]);
     const [courseId, setCourseId] = useState();
     const [faculty, setFaculty] = useState('Education');
+    const [error, setError] = useState(false);
 
     {/*on first render this gets the data loaded from the api at the specified link and stores it into the courseData array*/}
     useEffect(() => {
-        Axios.get('http://localhost:4000/api/courses').then(response => {
+        Axios.get('http://localhost:4000/api/courses')
+        .then(response => {
             setCourses(response.data);
+        })
+        .catch(err=>{
+            console.log(err);
+            setError(true);
         });
     }, []);
 
@@ -70,6 +76,8 @@ function CourseHome() {
             </Link>
         </div>
 
+        {!error ?
+            <span>
             {/*this div will start as hidden and then displayed to show the details of the course that was selected for more*/}
             <div id='overlay'>
                 <div className='course-details'>
@@ -127,6 +135,10 @@ function CourseHome() {
                 }
                 <a href='#top'><img src={UpArrow} alt='arrow pointing up' /></a>
             </div>
+            </span>
+            :
+                <h2>Uh Oh, something went wrong on our end!</h2>
+            }
         </div>
     )
 }
