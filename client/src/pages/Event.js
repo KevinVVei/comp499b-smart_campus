@@ -11,11 +11,17 @@ function Event() {
   const [eventType, setEventType] = useState('-');
   const [searchTerm, setSearchTerm] = useState('');
   const [searched, setSearched] = useState(false);
+  const [error, setError] = useState(false);
 
   {/*on first render this gets the data loaded from the api at the specified link and stores it into the eventData array*/}
   useEffect(() => {
-    Axios.get('http://localhost:4000/api/events').then(response => {
+    Axios.get('http://localhost:4000/api/eents')
+    .then(response => {
       setEventData(response.data);
+    })
+    .catch(err=>{
+      console.log(err);
+      setError(true);
     });
   }, []); 
 
@@ -62,6 +68,8 @@ function Event() {
         </div>
       </div>
 
+      {!error ?
+        <span>
       {/*this div will start as hidden and then displayed to show the details of the event that was selected for details*/}
       <div id='overlay'>
         <div className='event-details'>
@@ -118,7 +126,10 @@ function Event() {
         }
         <a href='#top'><img src={UpArrow} alt='arrow pointing up' /></a>
       </div>
-          
+      </span>
+      :
+        <h2>Uh Oh, something went wrong on our end!</h2>
+      }
     </div>
   )
 }
