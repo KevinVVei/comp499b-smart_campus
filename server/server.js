@@ -36,9 +36,48 @@ app.post("/api/register", (req, res) => {
     const usern = req.body.usern;
     const pwd = req.body.pwd;
 
-    const sqlInsert = "INSERT INTO student_users (email, username, password) VALUES (?, ?, ?);"
-    db.query(sqlInsert, [email, usern, pwd], (err, result) => {
-       console.log(err); 
+    const sqlInsert = "SELECT * FROM student_users WHERE email = ? || username = ?;"
+    db.query(sqlInsert, [email, usern], (err, result) => {
+        if(err){
+            res.send({err: err});
+        }
+
+        if(result.length > 0) {
+            if(result.length === 1){
+                if(result[0].email === email &&  result[0].username === usern){
+                    res.send({message: "Email and Username already in use!"});
+                } else if(result[0].email === email &&  result[0].username !== usern){
+                    res.send({message: "Email already in use!"});
+                } else if(result[0].email !== email &&  result[0].username === usern){
+                    res.send({message: "Username already in use!"});
+                }
+            } else if(result.length === 2){
+                if(result[0].email === email &&  result[1].username === usern || result[1].email === email &&  result[0].username === usern){
+                    res.send({message: "Email and Username already in use!"});
+                } else if(result[0].email === email &&  result[0].username === usern ){
+                    res.send({message: "Email and Username already in use!"});
+                } else if(result[0].email === email &&  result[0].username !== usern){
+                    res.send({message: "Email already in use!"});
+                } else if(result[0].email !== email &&  result[0].username === usern){
+                    res.send({message: "Username already in use!"});
+                }else if(result[1].email === email &&  result[1].username === usern){
+                    res.send({message: "Email and Username already in use!"});
+                } else if(result[1].email === email &&  result[1].username !== usern){
+                    res.send({message: "Email already in use!"});
+                } else if(result[1].email !== email &&  result[1].username === usern){
+                    res.send({message: "Username already in use!"});
+                }
+            }
+        } else {
+            const sqlInsert = "INSERT INTO student_users (email, username, password) VALUES (?, ?, ?);"
+            db.query(sqlInsert, [email, usern, pwd], (err, result) => {
+                if(err){
+                    res.send({err: err});
+                }
+        
+                res.send({message1: "User registered successfully!"});
+            });
+        }
     });
 })
 
