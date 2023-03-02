@@ -1,0 +1,284 @@
+.disable-scroll {
+    overflow-y: hidden;
+}
+
+.CourseHomePage{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.course-filter {
+    width: 90%;
+    padding: 5px;
+    display: block;
+    margin: auto;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background-color: lightgray;
+}
+
+.c-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.c-filter-btn { 
+    position: relative;
+    width: 100px;
+    height: 80%;
+    vertical-align: middle;
+    padding: 16px;
+    font-size: large;
+    border: 0;
+    border-radius: 5px;
+    background-color: #F2C300;
+    cursor: pointer;
+}
+
+.c-filter-btn:hover {
+    color: #fdfdfd;
+    background-color: #005596;
+}
+
+.c-dropdown-content {
+    display: none;
+    position: absolute;
+    width: 150px;
+    height: 273px;
+    margin-left: -30px;
+    z-index: 1;
+    overflow-y: scroll;
+    border-radius: 5px;
+    background-color: #F2C300;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.c-dropdown-content::-webkit-scrollbar {
+    display: none;
+}
+  
+.c-dropdown-content {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+}
+
+.c-dropdown-content span {
+    display: block;
+    padding: 15px;
+    text-align: center;
+}
+
+.c-dropdown-content span:hover {
+    background-color: #be9801;
+}
+
+.c-dropdown:hover .c-dropdown-content {
+    display: block;
+}
+  
+.c-dropdown:hover .c-filter-btn {
+    color: #fdfdfd;
+    background-color: #005596;
+}
+
+.c-search-bar {
+    width: 70%;
+    margin-left: 1%;
+    position: relative;
+    display: inline-block;
+}
+
+.c-search-bar input {
+    width: 85%;
+    padding-left: 2%;
+    vertical-align: middle;
+    border-radius: 5px 0 0 5px;
+    font-size: large;
+}
+
+.c-search-bar input:focus {
+    outline:2px solid #005596;
+}
+
+.c-search-bar button {
+    width: 55px;
+    height: 52px;
+    margin-left: 0.25%;
+    vertical-align: middle;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #F2C300;
+}
+
+.c-search-bar button img {
+    width: 75%;
+}
+
+.c-search-bar button:hover {
+    background-color: #005596;
+}
+
+.c-search-bar button:hover img {
+    filter: invert(100%);
+}
+ 
+.disable-scroll {
+    overflow-y: hidden;
+}
+
+.CoursePage{
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+.courses a {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    top: 90%;
+    right: 3%;
+    text-decoration: none;
+    color: #005596;
+    cursor: pointer;
+}
+
+.courses a img {
+    width: 40px;
+    height: 40px;
+    background-color: #fdfdfd;
+    border-radius: 25px;
+}
+
+.courses a:hover img {
+    background-color: #F2C300;
+}
+
+#summary {
+    width: 60%;
+    margin: auto;
+    padding: 35px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    text-align: justify;
+    background-color: #005596;
+}
+
+#summary:hover {
+    transform: scale(1.005);
+    background-color: #026cbe;
+}
+
+#summary div {
+    position: relative;
+    width: 98%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    text-decoration: none; 
+    line-height: 150%;
+}
+ 
+#summary div button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px;
+    font-size: large;
+    color: black;  
+    background-color: #F2C300;
+}
+
+#summary div button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #005596;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+.course-details {
+    margin: 5% auto;
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #005596;
+}
+
+#detailed-summary {
+    position: relative;
+    width: 90%;
+    margin: auto;
+    padding: 35px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-size: large;
+    text-align: justify;
+    background-color: white;
+}
+
+#detailed-summary button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px;
+    color: black;  
+    background-color: #F2C300;
+}
+
+#detailed-summary button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #005596;
+}
+ 
+@media (max-width: 1450px){
+    #summary {
+        width: 80%;
+    }
+
+    .course-details {
+        width: 80%;
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 1150px){
+    .course-details {
+        margin-top: 10px;
+        width: 90%;
+    }
+
+    #detailed-summary {
+        width: 80%;
+        height: 600px;
+        overflow-y: scroll;
+    }
+
+    #detailed-summary button {
+        position: relative;
+        float: right;
+    }
+
+    #summary {
+        width: 90%;
+    }
+}

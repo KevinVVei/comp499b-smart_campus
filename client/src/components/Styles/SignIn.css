@@ -1,0 +1,107 @@
+.signin-form {
+    margin-top: 5%;
+    margin-bottom: 13%;
+  }
+  
+  #form-container {
+    margin: auto;
+    max-width: 420px;
+    min-height: 400px;
+    display: flex;
+    border-radius: 15px;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    background-color: #005596;
+  }
+  
+  #form-container h1 {
+    text-align: center;
+    color: white;
+  }
+  
+  #form-container p {
+    text-align: center;
+    color: white;
+  }
+  
+  #form-container a {
+    color: #F2C300;
+  }
+  
+  #form-container form {
+    width: 75%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding-bottom: 1rem;
+  }
+  
+  #form-container input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+  }
+  
+  .submit-btn {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: none;
+    font-size: 22px;
+    border-radius: 15px;
+    background-color: #F2C300;
+    color: #005596;
+    font-weight: bold;
+  }
+  
+  .submit-btn:enabled:hover {
+    cursor: pointer;
+  }
+  
+  .submit-btn:disabled {
+    background-color: #1e2128;
+    border: #F2C300 1px solid;
+    color: #282c34;
+  }
+  
+  .instructions {
+    position: relative;
+    bottom: -10px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding: 0.25rem;
+    background-color: #F2C300;
+    border-radius: 0.5rem;
+  }
+  
+  svg {
+    margin-right: 0.5rem;
+  }
+  
+  .offscreen {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  
+  .valid {
+    color: greenyellow;
+    margin-left: 0.5rem;
+  }
+  
+  .invalid {
+    color: red;
+    margin-left: 0.5rem;
+  }
+  
+  .hide {
+    display: none;
+  }
