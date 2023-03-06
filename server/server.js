@@ -9,7 +9,7 @@ const db = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: '499',
+    database: 'testdb',
     dateStrings: 'date'
 });
 
@@ -59,7 +59,7 @@ app.post("/api/SignIn", (req, res) => {
             res.send({err: err});
         }
         if (result.length > 0) {
-            const token = jwt.sign({ User: result[0][0] }, '499', { expiresIn: '10s' })
+            const token = jwt.sign({ User: result[0][0] }, 'testdb', { expiresIn: '10s' })
             const UserInfo = {
                 token: token,
                 user: result[0][0],
