@@ -12,13 +12,6 @@ function SignUp() {
 
   const [usersData, setUsersData] = useState([]);
 
-  {/*on first render this gets the data loaded from the api at the specified link and stores it into the eventData array*/}
-  useEffect(() => {
-    Axios.get('http://localhost:4000/api/users').then(response => {
-      setUsersData(response.data);
-    });
-  }, []); 
-
   const emailRef = useRef();
   const userRef = useRef();
   const errRef = useRef();
@@ -82,26 +75,21 @@ function SignUp() {
       setErrMsg("Please enter a valid email, username and password");
       return;
     } else {
-      {/*checks the data from the api for the appearance of a user with the inputted email and username. they return true if a match is found*/}
-      const emailMatch = usersData.some(element => element.email === email);
-      const usernameMatch = usersData.some(element => element.username === usern);
-
-      {/*adds user to database or outputs message informing an inputs in use*/}
-      if(!emailMatch && !usernameMatch){
-        Axios.post('http://localhost:4000/api/insertuser', {email: email, usern: usern, pwd: pwd});
-
-        setSuccess(true);
-      } else {
-        if(!emailMatch && usernameMatch){
-          alert("username in use");
-        } 
-        else if (emailMatch && !usernameMatch){
-          alert("email in use");
-        } 
-        else {
-          alert("email and username in use");
+      Axios.post('http://localhost:4000/api/Register', {
+        email: email,
+        usern: usern,
+        pwd: pwd,
+      })
+      .then(response => {
+        if(response.data.message){
+          alert(response.data.message);
+        } else {
+          setSuccess(true);
         }
-      }
+      })
+      .catch(err=> {
+        console.log(err)
+      });
     }
   };
 

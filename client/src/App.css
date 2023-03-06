@@ -1,16 +1,38 @@
 body {
-  max-width: 100%;
-  margin: auto;
-  box-sizing: border-box;
+  background-color: #FAF8FC;
+}
+
+#app-content {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+      "navbar"
+      "pages"
+      "footer";
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .navbar {
-  position: absolute;
-  z-index: 1;
+  grid-area: navbar;
 }
 
-.content {
+.navbar hr {
+  width: 80%;
+  height: 8px;
+  border-radius: 5px;
+  margin: auto;
+  background-color: #005596;
+}
+
+.page-content {
+  grid-area: pages;
   justify-content: center;
   align-items: center;
-  margin-top: 55px;
+}
+
+.page-footer {
+  grid-area: footer;
 }

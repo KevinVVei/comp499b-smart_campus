@@ -11,7 +11,6 @@ import Event from './pages/Event';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import Profile from './pages/Profile';
-import FacultyCourses from './pages/FacultyCourses';
 import Error from './pages/Error';
 
 function App() {
@@ -25,30 +24,26 @@ function App() {
     }
   }, [token]);
 
-
   return (
+    <div id="app-content">
         <Router>
           <div className='navbar'>
             <Navbar />
+            <hr/>
           </div>
           
-          <div className='content'>
+          <div className='page-content'>
           <Routes>
             <Route path='/' index element={<Homepage />} />
             <Route path='/CourseHome' element={<CourseHome />} />
-            <Route path='/FacultyCourses' element={<FacultyCourses />} />
             <Route path='/CourseHome/courses/:courseId' element={<Course />} />
             {/* <Route path='/CourseHome/courses/:courseId/details/:detailsId' element={<Lecture />} /> */}
             <Route path='/Event' element={<Event />} />
-          
-          
-          {isLogin ? (
-            <Route path='/SignIn' element={<Profile />} />
-          ) : (
-            <Route path='/SignIn' element={<SignIn />} />
-          )}          
-
-
+            {isLogin ? (
+              <Route path='/SignIn' element={<Profile />} />
+            ) : (
+              <Route path='/SignIn' element={<SignIn />} />
+            )}          
             {/* <Route
             
             path='/SignIn' element={
@@ -58,18 +53,16 @@ function App() {
               />} 
             
           /> */}
-          
-
-          
+  
             <Route path='/SignUp' element={<SignUp />} />
             <Route path='/Profile' element={<Profile />} />
             <Route path='*' element={<Error />} />
           </Routes>
           </div>
 
-          <Footer />
+          <Footer id="page-footer" />
         </Router>
-
+    </div>
   );
 }
 

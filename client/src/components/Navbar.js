@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import SignIn from './SignIn';
 import Profile from '../pages/Profile';
+import UserIcon from '../assets/images/user.svg';
+import LogoutIcon from '../assets/images/logout-icon.svg';
 import './Styles/Navbar.css';
 
 function Navbar () {
@@ -26,17 +28,12 @@ function Navbar () {
     }
 
     return (
-      <nav>
+        <nav>
         <Link to='/' className='logo' >
-          <img src={require('../assets/images/uwin_logo.png')} alt='Uwindsor logo' />
+          <img src={require('../assets/images/uwin-logo.png')} alt='Uwindsor logo' />
         </Link>
 
-        <ul className='navbar-buttons'>
-            <li>
-                <Link to='/' id='home-btn'>
-                    Home
-                </Link>
-            </li>
+        <ul className='nav-buttons'>
             <li>
                 <Link to='/CourseHome'>
                     Courses
@@ -47,32 +44,36 @@ function Navbar () {
                     Events
                 </Link>
             </li>
-            <li>
-                    {isLogin ? (
-                    <div className='dropdown-list'>
-                        <Link id='signup-button' to='/Profile'>Profile</Link>
-                        <Link id='signup-button' onClick={handleSignOut} >Sign Out</Link>
-                    </div>
-                ) : (
-                    <Link to='/SignIn' 
-                        >Sign In</Link>                               
-                )}
-     
-                
-            </li>
-            <li>
-                <Link to='/SignUp' id='signup-button'>
-                    Sign up
-                </Link>
-            </li>
-            <li id='user-icon'>
-                <Link to='/Profile'>
-                    {/*change to users name */}
-                </Link>
-            </li>
+            {!isLogin && (
+                <>
+                <li>
+                    <Link to='/SignIn'>
+                        Log in
+                    </Link>                                      
+                </li>
+                <li>
+                    <Link to='/SignUp' className='signup-btn'>
+                        Sign up
+                    </Link>
+                </li>
+                </>
+            )}
+            {isLogin && (
+                <>
+                <li id='user-icon'>
+                    <Link to='/Profile'>
+                        <img src={UserIcon} alt="user icon" />
+                    </Link>
+                </li> 
+                <li id='logout-icon'>
+                    <Link to='/'>
+                        <img src={LogoutIcon} alt="user icon" onClick={handleSignOut}/>
+                    </Link>
+                </li>
+                </>
+            )}
         </ul>
-            
-        </nav>
+    </nav>
     )
 }
 

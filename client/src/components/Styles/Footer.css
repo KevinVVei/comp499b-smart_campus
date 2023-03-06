@@ -2,12 +2,14 @@ footer {
     clear: both;
     position: relative;
     margin-top: 50px;
+    margin-left: 10%;
+    border-radius: 25px 25px 0 0;
     padding: 0;
     padding-top: 15px;
     padding-bottom: 15px;
-    width: 100%;
+    width: 80%;
     bottom: 0;
     text-align: center;
     background-color: #005596;
-    color: white;
+    color: #F2C300;
 }
