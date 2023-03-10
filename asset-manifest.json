@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/comp499b-smart_campus/static/css/main.3e2f9766.css",
+    "main.js": "/comp499b-smart_campus/static/js/main.2007f663.js",
+    "static/media/banner.jpg": "/comp499b-smart_campus/static/media/banner.2bae32b5e19a9525c6d1.jpg",
+    "static/media/campus.jpeg": "/comp499b-smart_campus/static/media/campus.20fb53b98d3e2e9ab744.jpeg",
+    "static/media/uwindsor.jpeg": "/comp499b-smart_campus/static/media/uwindsor.51ce20b8ebd49b3d562a.jpeg",
+    "static/media/UW.jpg": "/comp499b-smart_campus/static/media/UW.0d547ebab4b4f9ae971d.jpg",
+    "static/media/event.jpeg": "/comp499b-smart_campus/static/media/event.8d0b6abb2952e4c8fc7a.jpeg",
+    "static/media/timetable.png": "/comp499b-smart_campus/static/media/timetable.3c6366ef84a5ad79663e.png",
+    "static/media/uwin-logo.png": "/comp499b-smart_campus/static/media/uwin-logo.1abdc48e549cb22794ac.png",
+    "static/media/user.svg": "/comp499b-smart_campus/static/media/user.7a1b6cd860e4b94a85500b1d2db79a7e.svg",
+    "index.html": "/comp499b-smart_campus/index.html",
+    "static/media/logout-icon.svg": "/comp499b-smart_campus/static/media/logout-icon.ddf8c7b4047be4d4b634aaeb53c0cf59.svg",
+    "static/media/up-arrow.svg": "/comp499b-smart_campus/static/media/up-arrow.83b88c039641dd9eb594bc29ae77bb42.svg",
+    "static/media/search-icon.svg": "/comp499b-smart_campus/static/media/search-icon.bf7c00a4cf3b50288170bca48fe9fd9a.svg",
+    "main.3e2f9766.css.map": "/comp499b-smart_campus/static/css/main.3e2f9766.css.map",
+    "main.2007f663.js.map": "/comp499b-smart_campus/static/js/main.2007f663.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3e2f9766.css",
+    "static/js/main.2007f663.js"
+  ]
+}
