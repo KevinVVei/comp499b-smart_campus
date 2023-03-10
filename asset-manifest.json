@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.3e2f9766.css",
-    "main.js": "/static/js/main.b68fbac2.js",
-    "static/media/banner.jpg": "/static/media/banner.2bae32b5e19a9525c6d1.jpg",
-    "static/media/campus.jpeg": "/static/media/campus.20fb53b98d3e2e9ab744.jpeg",
-    "static/media/uwindsor.jpeg": "/static/media/uwindsor.51ce20b8ebd49b3d562a.jpeg",
-    "static/media/UW.jpg": "/static/media/UW.0d547ebab4b4f9ae971d.jpg",
-    "static/media/event.jpeg": "/static/media/event.8d0b6abb2952e4c8fc7a.jpeg",
-    "static/media/timetable.png": "/static/media/timetable.3c6366ef84a5ad79663e.png",
-    "static/media/uwin-logo.png": "/static/media/uwin-logo.1abdc48e549cb22794ac.png",
-    "static/media/user.svg": "/static/media/user.7a1b6cd860e4b94a85500b1d2db79a7e.svg",
-    "static/media/logout-icon.svg": "/static/media/logout-icon.ddf8c7b4047be4d4b634aaeb53c0cf59.svg",
-    "index.html": "/index.html",
-    "static/media/up-arrow.svg": "/static/media/up-arrow.83b88c039641dd9eb594bc29ae77bb42.svg",
-    "static/media/search-icon.svg": "/static/media/search-icon.bf7c00a4cf3b50288170bca48fe9fd9a.svg",
-    "main.3e2f9766.css.map": "/static/css/main.3e2f9766.css.map",
-    "main.b68fbac2.js.map": "/static/js/main.b68fbac2.js.map"
+    "main.css": "/home/static/css/main.86d66cab.css",
+    "main.js": "/home/static/js/main.be47c4df.js",
+    "static/media/banner.jpg": "/home/static/media/banner.2bae32b5e19a9525c6d1.jpg",
+    "static/media/campus.jpeg": "/home/static/media/campus.20fb53b98d3e2e9ab744.jpeg",
+    "static/media/uwindsor.jpeg": "/home/static/media/uwindsor.51ce20b8ebd49b3d562a.jpeg",
+    "static/media/UW.jpg": "/home/static/media/UW.0d547ebab4b4f9ae971d.jpg",
+    "static/media/event.jpeg": "/home/static/media/event.8d0b6abb2952e4c8fc7a.jpeg",
+    "static/media/timetable.png": "/home/static/media/timetable.3c6366ef84a5ad79663e.png",
+    "static/media/uwin-logo.png": "/home/static/media/uwin-logo.1abdc48e549cb22794ac.png",
+    "static/media/user.svg": "/home/static/media/user.7a1b6cd860e4b94a85500b1d2db79a7e.svg",
+    "index.html": "/home/index.html",
+    "static/media/logout-icon.svg": "/home/static/media/logout-icon.ddf8c7b4047be4d4b634aaeb53c0cf59.svg",
+    "static/media/up-arrow.svg": "/home/static/media/up-arrow.83b88c039641dd9eb594bc29ae77bb42.svg",
+    "static/media/search-icon.svg": "/home/static/media/search-icon.bf7c00a4cf3b50288170bca48fe9fd9a.svg",
+    "main.86d66cab.css.map": "/home/static/css/main.86d66cab.css.map",
+    "main.be47c4df.js.map": "/home/static/js/main.be47c4df.js.map"
   },
   "entrypoints": [
-    "static/css/main.3e2f9766.css",
-    "static/js/main.b68fbac2.js"
+    "static/css/main.86d66cab.css",
+    "static/js/main.be47c4df.js"
   ]
 }
