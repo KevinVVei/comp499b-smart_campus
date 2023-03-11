@@ -4,6 +4,7 @@ import SignIn from './SignIn';
 import Profile from '../pages/Profile';
 import UserIcon from '../assets/images/user.svg';
 import LogoutIcon from '../assets/images/logout-icon.svg';
+import Home from '../pages/Home';
 import './Styles/Navbar.css';
 
 function Navbar () {
@@ -29,7 +30,7 @@ function Navbar () {
 
     return (
         <nav>
-        <Link to='/' className='logo' >
+        <Link to='/home' className='logo' >
           <img src={require('../assets/images/uwin-logo.png')} alt='Uwindsor logo' />
         </Link>
 
