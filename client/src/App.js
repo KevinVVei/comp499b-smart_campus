@@ -34,7 +34,7 @@ function App() {
           
           <div className='page-content'>
           <Routes>
-            <IndexRoute element={<Homepage />} />
+            {/* <IndexRoute element={<Homepage />} /> */}
             //<Route exact path='/home' index element={<Homepage />} />
             <Route path='/CourseHome' element={<CourseHome />} />
             <Route path='/CourseHome/courses/:courseId' element={<Course />} />

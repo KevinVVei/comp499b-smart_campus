@@ -63,7 +63,7 @@ function CourseHome() {
                     <span onClick={()=> {filterCourses('Law')}}>Law</span>
                     <span onClick={()=> {filterCourses('Nursing')}}>Nursing</span>
                     <span onClick={()=> {filterCourses('Business')}}>Business</span>
-                    <span onClick={()=> {filterCourses('Science')}}>Science</span>
+                    <span onClick={()=> {filterCourses('Computer Science')}}>Science</span>
                 </div>
             </div>
 
