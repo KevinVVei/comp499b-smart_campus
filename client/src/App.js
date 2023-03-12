@@ -6,7 +6,6 @@ import Footer from './components/Footer';
 import Homepage from './pages/Home';
 import CourseHome from './pages/CourseHome';
 import Course from './pages/Course';
-import Lecture from './pages/Lecture';
 import Event from './pages/Event';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
