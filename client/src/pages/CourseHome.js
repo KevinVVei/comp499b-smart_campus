@@ -5,6 +5,8 @@ import SearchIcon from '../assets/images/search-icon.svg';
 import UpArrow from '../assets/images/up-arrow.svg';
 import './Styles/CourseHome.css';
 
+
+
 /*displays links to courses according to faculty*/
 function CourseHome() {
 
@@ -14,6 +16,7 @@ function CourseHome() {
     const [courseId, setCourseId] = useState();
     const [faculty, setFaculty] = useState('Education');
     const [error, setError] = useState(false);
+
 
     {/*on first render this gets the data loaded from the api at the specified link and stores it into the courseData array*/}
     useEffect(() => {
@@ -59,11 +62,11 @@ function CourseHome() {
                     <span onClick={()=> {filterCourses('Education')}}>Education</span>
                     <span onClick={()=> {filterCourses('Engineering')}}>Engineering</span>
                     <span onClick={()=> {filterCourses('Graduate')}}>Graduate</span>
-                    <span onClick={()=> {filterCourses('HK')}}>HK</span>
+                    <span onClick={()=> {filterCourses('Human Kinetics')}}>Human Kinetics</span>
                     <span onClick={()=> {filterCourses('Law')}}>Law</span>
                     <span onClick={()=> {filterCourses('Nursing')}}>Nursing</span>
                     <span onClick={()=> {filterCourses('Business')}}>Business</span>
-                    <span onClick={()=> {filterCourses('Science')}}>Science</span>
+                    <span onClick={()=> {filterCourses('Computer Science')}}>Computer Science</span>
                 </div>
             </div>
 
@@ -143,4 +146,4 @@ function CourseHome() {
     )
 }
 
-export default CourseHome 
+export default CourseHome
