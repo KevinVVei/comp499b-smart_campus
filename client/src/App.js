@@ -12,6 +12,7 @@ import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import Profile from './pages/Profile';
 import Error from './pages/Error';
+import Guidance from './components/Guidance'; 
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
   
             <Route path='/SignUp' element={<SignUp />} />
             <Route path='/Profile' element={<Profile />} />
+            <Route path='/Guidance' element={<Guidance />} /> {/* Corrected link to Guidance page */}
             <Route path='*' element={<Error />} />
           </Routes>
           </div>
