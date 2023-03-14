@@ -1,0 +1,31 @@
+
+#form_info {
+    width: 60%;
+    margin: auto;
+    padding-left: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    text-align: justify;
+    background-color: lightblue;
+}
+
+
+
+#form_info div {
+    position: relative;
+    width: 98%;
+    padding-top: 10px;
+    border-radius: 5px;
+    background-color: lightblue;
+    text-decoration: none; 
+    /* line-height: 150%; */
+}
+
+
+
+@media (max-width: 1450px){
+    #form_info {
+        width: 80%;
+    }
+
+}

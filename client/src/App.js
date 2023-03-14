@@ -6,12 +6,12 @@ import Footer from './components/Footer';
 import Homepage from './pages/Home';
 import CourseHome from './pages/CourseHome';
 import Course from './pages/Course';
-import Lecture from './pages/Lecture';
 import Event from './pages/Event';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import Profile from './pages/Profile';
 import Error from './pages/Error';
+import Guidance from './components/Guidance'; 
 
 function App() {
 
@@ -57,6 +57,7 @@ function App() {
   
             <Route path='/SignUp' element={<SignUp />} />
             <Route path='/Profile' element={<Profile />} />
+            <Route path='/Guidance' element={<Guidance />} /> {/* Corrected link to Guidance page */}
             <Route path='*' element={<Error />} />
           </Routes>
           </div>

@@ -15,7 +15,7 @@ function Event() {
 
   {/*on first render this gets the data loaded from the api at the specified link and stores it into the eventData array*/}
   useEffect(() => {
-    Axios.get('http://localhost:4000/api/eents')
+    Axios.get('http://localhost:4000/api/events')
     .then(response => {
       setEventData(response.data);
     })

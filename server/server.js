@@ -30,6 +30,12 @@ app.get("/api/courses", (req, res) => {
     });
 })
 
+app.get("/api/survey", (req, res) => {
+    const sqlSelect = "SELECT * FROM survey"
+    db.query(sqlSelect, (err, result) => {
+        res.send(result); 
+    });
+})
 
 app.post("/api/register", (req, res) => {
     const email = req.body.email;
