@@ -37,6 +37,29 @@ app.get("/api/survey", (req, res) => {
     });
 })
 
+
+app.post("/api/surveyIn", (req, res) => {
+    const formID= req.body.formID;
+    const name= req.body.name;
+    const year= req.body.year;
+    const term= req.body.term;
+    const major= req.body.major;
+    const courses= req.body.courses;
+    // const courses = "4990"
+
+    
+    const sqlInsert = "INSERT INTO survey (FormID, Name, Year, Term, Major, Courses) VALUES (?, ?, ?, ?, ?, ?);"
+    db.query(sqlInsert, [formID, name, year, term, major, courses], (err, result) => {
+        if(err){
+            res.send({err: err});
+            console.log("error "+ formID + " "+ name + " " + year + " " + term + " " + major + " " + courses);
+        }
+    });
+})
+
+
+
+
 app.post("/api/register", (req, res) => {
     const email = req.body.email;
     const usern = req.body.usern;
