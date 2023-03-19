@@ -1,31 +1,66 @@
-
-#form_info {
-    width: 60%;
-    margin: auto;
-    padding-left: 30px;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    text-align: justify;
-    background-color: lightblue;
-}
-
-
-
-#form_info div {
-    position: relative;
-    width: 98%;
-    padding-top: 10px;
+.Guidance {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .Guidance h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .Guidance p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .Guidance button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #ffbe0b;
+    color: #fff;
+    border: none;
     border-radius: 5px;
-    background-color: lightblue;
-    text-decoration: none; 
-    /* line-height: 150%; */
-}
-
-
-
-@media (max-width: 1450px){
-    #form_info {
-        width: 80%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .Guidance button:hover {
+    background-color: #fb8b24;
+  }
+  
+  .surveys {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  #form_info {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .Guidance h1 {
+      font-size: 28px;
     }
-
-}
+    
+    .Guidance p {
+      font-size: 16px;
+    }
+    
+    .Guidance button {
+      font-size: 16px;
+      padding: 8px 16px;
+    }
+    
+    #form_info {
+      padding: 5px;
+    }
+  }
