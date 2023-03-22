@@ -1,66 +1,86 @@
-
+.disable-scroll {
+    overflow-y: hidden;
+}
 
 .events-page {
-    width: 80%;
+    width: 100%;
+    height: 100%;
     position: relative;
     margin: auto;
 }
 
 .events-page img {
-    width: 100%;
+    width: 90%;
     display: block;
-    margin: 10px auto;
-    border-radius: 15px;
+    margin: -22.5vh 5% auto;
+    border-radius: 10px;
 }
 
-.event-filter {
-    width: 90%;
-    padding: 5px;
+.event-search {
+    width: 80%;
+    height: 55px;
     display: block;
+    padding: 7px;
     margin: auto;
     margin-bottom: 15px;
-    border-radius: 15px;
+    border-radius: 10px;
+    text-align: center;
     background-color: lightgray;
+}
+
+.filter-btn {
+    width: 75px;
+    height: 55px;
+    display: block;
+    border: none;
+    border-radius: 5px;
+    font-size: large;
+    color: #0B2E4E;
+    background-color: #F2C300;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-btn:hover {
+    color: #fdfdfd;
+    background-color: #0B2E4E;
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
-    margin-left: 6%;
-}
-
-.filter-btn { 
-    width: 100px;
-    height: 80%;
-    vertical-align: middle;
-    padding: 16px;
-    font-size: large;
-    border: 0;
-    border-radius: 5px;
-    background-color: #F2C300;
-    cursor: pointer;
-}
-
-.filter-btn:hover {
-    color: #fdfdfd;
-    background-color: #005596;
+    transition: 0.3s; 
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     width: 100px;
+    height: 143px;
+    margin-left: -12px;
     z-index: 1;
+    overflow-y: scroll;
     border-radius: 5px;
     background-color: #F2C300;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     cursor: pointer;
+    transition: 0.3s; 
+}
+
+.dropdown-content::-webkit-scrollbar {
+    display: none;
+}
+  
+.dropdown-content {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
 }
 
 .dropdown-content span {
     display: block;
     padding: 15px;
     text-align: center;
+    transition: 0.3s;
 }
 
 .dropdown-content span:hover {
@@ -73,127 +93,238 @@
   
 .dropdown:hover .filter-btn {
     color: #fdfdfd;
-    background-color: #005596;
+    background-color: #0B2E4E;
 }
 
-.search-bar {
-    width: 80%;
-    margin-left: 1%;
-    position: relative;
-    display: inline-block;
-}
-
-.search-bar input {
-    width: 85%;
-    padding-left: 2%;
-    vertical-align: middle;
-    border-radius: 5px 0 0 5px;
-    font-size: large;
-}
-
-.search-bar input:focus {
-    outline:2px solid #005596;
-}
-
-.search-bar button {
-    width: 55px;
-    height: 55px;
+#search-input {
+    width: 70%;
+    height: 50.5px;
     margin-left: 0.25%;
-    vertical-align: middle;
+    padding-left: 10px;
+    vertical-align: top;
     border: none;
+    border-radius: 5px 0 0 5px;
+    outline: 1px solid lightgray;
+    font-size: large;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#search-input:focus {
+    outline: 1px solid #0B2E4E;
+}
+
+#search-btn {
+    width: 55px;
+    height: 54px;
+    margin-top: -0.10%;
+    vertical-align: top;
+    border: 1px solid #0B2E4E;
     border-radius: 0 5px 5px 0;
-    background-color: #F2C300;
+    background-color: #0B2E4E;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.search-bar button img {
-    width: 75%;
-}
-
-.search-bar button:hover {
-    background-color: #005596;
-}
-
-.search-bar button:hover img {
+#search-btn img {
+    width: 80%;
+    margin-top: 5%;
     filter: invert(100%);
 }
 
-.events {
-    width: 90%;
-    margin: auto;
-    margin-bottom: 20px;
-    display: grid;
-    grid-template-columns:  repeat(2, 48%);
-    column-gap: 4%;
-    row-gap: 4%;
+#search-btn:hover {
+    border: 1px solid #F2C300;
+    background-color: #F2C300;
 }
 
-.events a {
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    top: 90%;
-    right: 3%;
-    text-decoration: none;
-    color: #005596;
+#search-btn:hover img {
+    filter: invert(100%);
+}
+
+.empty-btn {
+    position: relative;
+    width: 60px;
+    height: 55px;
+    margin-left: 5px;
+    padding: 16px;
+    vertical-align: top;
+    font-size: xx-large;
+    border: none;
+    line-height: 0;
+    border-radius: 5px;
+    color: lightgray;
+    background-color: lightgray;
+}
+
+.add-event-btn { 
+    position: relative;
+    width: 60px;
+    height: 55px;
+    margin-left: 5px;
+    padding: 16px;
+    vertical-align: top;
+    font-size: xx-large;
+    border: none;
+    line-height: 0;
+    border-radius: 5px;
+    color: #0B2E4E;
+    background-color: #F2C300;
     cursor: pointer;
 }
 
-.events a img {
+.add-event-btn:hover {
+    color: #fdfdfd;
+    background-color: #0B2E4E;
+}
+
+.new-event-form {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.new-event-form form {
+    position: relative;
+    width: 500px;
+    padding: 25px;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #0B2E4E;
+    border-radius: 15px;
+    color: #0B2E4E;
+    background-color: lightgray;
+}
+
+.new-event-form input {
+    width: 97%; 
+    margin: 2% auto;
+    line-height: 200%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+}
+
+.new-event-form input:focus {
+    outline: 1px solid #0B2E4E;
+}
+
+.new-event-form textarea {
+    width: 97%;
+    height: 100px;
+    margin: 2% auto;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    cursor: pointer;
+}
+
+.new-event-form select {
+    width: 40%;
+    margin-top: 2%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    font-size: medium;
+    cursor: pointer;
+}
+
+.new-event-form button {
+    width: 150px;
+    margin: auto;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: medium;
+    cursor: pointer;
+    color: white;
+    background-color: #0B2E4E;   
+}
+
+.new-event-form button:hover {
+    color: #0B2E4E;
+    background-color: #F2C300;
+}
+
+#date-input {
+    display: inline;
+}
+
+#date-input input {
+    width: 25%;
+    margin-top: 2%;
+    margin-right: 4%;
+}
+
+#option-btns {
+    width: 63.2%;
+    display: block;
+    margin: auto;
+}
+
+#option-btns button {
+    display: inline-block;
+}
+
+#back-to-top {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 3%;
+    bottom: -10%;
+    text-decoration: none;
+    color: #0B2E4E;
+    cursor: pointer;
+}
+
+#back-to-top img {
     width: 40px;
     height: 40px;
     background-color: #fdfdfd;
     border-radius: 25px;
+    transition: 0.3s;
 }
 
-.events a:hover img {
-    background-color: #F2C300;
+#back-to-top:hover img {
+    background-color: lightgray;
+}
+
+.events {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns:  46% 46%;
+    column-gap: 5.5%;
 }
 
 .event-container {
-    padding: 10px;
-    border-radius: 15px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 3%;
+    padding: 15px;
+    border-radius: 10px;
+    line-height: 100%;
     transition: 0.3s;
-    background-color: #005596;
+    color: #fdfdfd;
+    background-color: #0B2E4E;
 }
 
 .event-container:hover {
-    transform: scale(1.005);
-    background-color: #026cbe;
+    transform: scale(1.01);
+    background-color: #0B2E4E;
 }
 
-.event-container:hover div {
-    background-color: #026cbe;
+.event-container h2 {
+    color: #F2C300;
 }
 
-.event-container div {
-    margin: auto;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 5px;
-    line-height: 100%;
-    transition: 0.3s;
-    background-color: #005596;
-}
-
-.event-container div .white-back {
-    padding: 10px;
-    border-radius: 5px;
-    color: #fdfdfd;
-}
-
-.event-container div img {
-    width: 30%;
-    margin-right: 5%;
-    float: left;
-}
-
-.event-container div h1 p h3 {
-    width: 75%;
-    padding-bottom: 10px;
-    float: right;
-}
-
-.event-container div button {
+.event-container button {
     float: right;
     margin-right: 3%;
     margin-top: -7%;
@@ -201,16 +332,15 @@
     padding: 6px;
     border: none;
     border-radius: 5px;
-    box-shadow: 1px 1px;
     font-size: larger;
-    transition: 0.3s;
-    color: #005596;  
+    transition: 0.3s; 
     background-color: #F2C300;
+    cursor: pointer;
 }
 
-.event-container div button:hover {
-    color: #005596;
-    background-color: white;
+.event-container button:hover {
+    color: #0B2E4E;
+    background-color: #fdfdfd;
 }
 
 #overlay {
@@ -222,59 +352,97 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1;
+}
+
+#overlay2 {
+    position: fixed; 
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7);
     z-index: 1;
 }
 
 .event-details {
-    margin: 5% auto;
-    width: 80%;
-    padding: 20px;
+    margin: 10% auto;
+    width: 50%;
+    padding: 15px;
     z-index: 2;
-    border-radius: 15px;
+    border-radius: 20px;
     transition: 0.5s;
-    background-color: #005596;
-}
-
-.event-details * {
-    transition: 0.5s;
+    background-color: #0B2E4E;
 }
 
 .event-details div {
     position:relative;
     margin: auto;
-    width: 100%;
-    overflow: auto;
+    width: 95%;
+    padding: 20px;
     border-radius: 15px;
     line-height: 200%;
-    background-color: #fdfdfd;
+    color: #fdfdfd;
+    background-color: #0B2E4E;
 }
 
-.event-details div .event-image {
-    width: 45%;
-    padding: 10px;
-    margin-right: 3%;
-    float: left;
-}
-
-.return-btn {
-    width: 25px;
-    height: 25px;
-    float: right;
-    margin-top: 1%;
-    margin-right: 1%;
-    font-size: large;
-    border: none;
-    color: #005596;
-    background-color: #fdfdfd;
-    cursor: pointer;
-}
-
-.return-btn:hover {
+.event-details h1 {
     color: #F2C300;
 }
 
-.event-details div h1, h2, p {
-    margin-right: 5%;
+.event-details div button {
+    float: right;
+    margin-right: 1%;
+    margin-top: -3%;
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+    font-size: larger;
+    transition: 0.3s; 
+    background-color: #F2C300;
+    cursor: pointer;
 }
 
+.event-details div button:hover {
+    color: #0B2E4E;
+    background-color: lightgray;
+}
+
+.event-details div h1 {
+    text-align: center;
+}
+
+@media (max-width: 1200px){
+    .events-page img {
+        width: 100%;
+        margin: -22.5vh auto;
+        margin-bottom: 0%;
+        border-radius: 0;
+    }
+
+    .event-search {
+        width: 98.5%;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .events {
+        grid-template-columns:  92%;
+    }
+
+    #search-input {
+        width: 55%;
+    }
+}
+
+@media (max-width: 600px) {
+    #search-input {
+        width: 50%;
+    }
+}

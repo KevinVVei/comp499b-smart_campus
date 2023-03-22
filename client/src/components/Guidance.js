@@ -20,13 +20,14 @@ function Guidance() {
   }, []);
 
   return (
-    <div className="Guidance">
-      <h1>Guidance</h1>
-      <p>Here you can find some helpful resources and links for academic guidance.</p>
-      <button onClick={() => setShowSurveyForm(true)}>Recommend Your Course Combination</button>
-      {showSurveyForm && <SurveyForm />}
+    <div className="guidance">
+      <div className='guidance-info'>
+        <h1>Academic Guidance</h1>
+        <p>Here you can find some helpful resources and links for academic guidance.</p><br/>
+        <button onClick={() => {setShowSurveyForm(true); document.body.classList.add('disable-scroll');}}>Recommend your schedule</button>
+      </div>
 
-
+      {showSurveyForm && <span className="survey-form" ><span onClick={() => {setShowSurveyForm(false); document.body.classList.remove('disable-scroll');}}></span><SurveyForm /></span>}
 
       <div className='surveys'>
           <>
@@ -34,10 +35,9 @@ function Guidance() {
             return (
               <div key={SurveyForms.FormID} id="form_info">
                   <div>
-                    <h2>{SurveyForms.Name} : {SurveyForms.Term}{SurveyForms.Year}</h2>
+                    <h2>{SurveyForms.Name} : {SurveyForms.Major}</h2>
             
-                    <p>{SurveyForms.Major} : {SurveyForms.Courses}</p><br />
-                      
+                    <p><b>{SurveyForms.Term} {SurveyForms.Year}</b> : {SurveyForms.Courses}</p><br />
                   </div>  
               </div>
             );

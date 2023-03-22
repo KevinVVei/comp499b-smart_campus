@@ -5,7 +5,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Homepage from './pages/Home';
 import CourseHome from './pages/CourseHome';
-import Course from './pages/Course';
 import Event from './pages/Event';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
@@ -29,16 +28,12 @@ function App() {
         <Router>
           <div className='navbar'>
             <Navbar />
-            <hr/>
           </div>
           
           <div className='page-content'>
           <Routes>
-            {/* <IndexRoute element={<Homepage />} /> */}
-            //<Route exact path='/home' index element={<Homepage />} />
+            <Route exact path='/home' index element={<Homepage />} />
             <Route path='/CourseHome' element={<CourseHome />} />
-            <Route path='/CourseHome/courses/:courseId' element={<Course />} />
-            {/* <Route path='/CourseHome/courses/:courseId/details/:detailsId' element={<Lecture />} /> */}
             <Route path='/Event' element={<Event />} />
             {isLogin ? (
               <Route path='/SignIn' element={<Profile />} />

@@ -1,75 +1,111 @@
 .home-page {
-    width: 80%;
+    width: 100%;
     margin: auto;
-    margin-bottom: 25px;
-}
-
-.home-page h2 {
-    text-align: center;
+    margin-bottom: 250px;
 }
 
 .home-page a {
+    color: #005596;
+    font-weight: bold;
     text-decoration: none;
 }
 
-.banner-image{
-    display: block;
-    width: 100%;
-    margin: 10px auto;
-    border-radius: 15px;
+.home-page a:hover {
+    color: #0B2E4E;
+}
+
+.banner-image {
+    position: absolute;
+    width: 90%;
+    margin: -42.5vh 5% auto;
+    border-radius: 10px;
 }
 
 .main-content {
     width: 80%;
-    margin: 60px auto;
+    margin: 20vh auto;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 50% 46%;
     grid-template-areas: 
-        "text1 image1"
-        "image2 text2"
-        "text3 image3";
-    row-gap: 100px;
-    justify-items: center;
+        "welcome welcome"
+        "image1 text1"
+        "text2 image2"
+        "image3 text3";
+    column-gap: 4%;
+    row-gap: 7%;
     font-size: large;
+    line-height: 175%;
+}
+
+.main-content h2 {
+    grid-area: welcome;
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    text-align: center;
 }
 
 .text1 {
     grid-area: text1;
     width: 100%;
-    height: 100%;
-    padding: 50px;
-    border-radius: 25px;
+    height: 80%;
+    margin-top: -5%;
+    margin-left: -35%;
+    padding-top: 10%;
+    padding-left: 35%;
+    border-radius: 10px;
+    background-color: rgb(173, 216, 230, 0.7)
 }
 
 .text2 {
     grid-area: text2;
-    width: 100%;
-    height: 100%;
-    padding: 50px;
-    justify-self: left;
+    width: 80%;
+    height: 80%;
+    margin-top: -5%;
+    margin-left: 15%;
+    padding-top: 10%;
+    padding-right: 35%;
+    padding-left: 10%;
+    border-radius: 10px;
+    background-color: rgb(173, 216, 230, 0.7);
 }
 
 .text3 {
     grid-area: text3;
     width: 100%;
-    height: 100%;
-    padding: 50px;
+    height: 80%;
+    margin-top: -5%;
+    margin-left: -35%;
+    padding-top: 10%;
+    padding-left: 35%;
+    border-radius: 10px;
+    background-color: rgb(173, 216, 230, 0.7);
 }
 
 .image1 {
     grid-area: image1;
     width: 100%;
-    border-radius: 25px;
+    border-radius: 15px;
 }
 
 .image2 {
     grid-area: image2;
     width: 100%;
-    border-radius: 25px;
+    z-index: 0;
+    border-radius: 0 10px 10px 0;
 }
 
 .image3 {
     grid-area: image3;
     width: 100%;
-    border-radius: 25px;
+    border-radius: 10px;
+}
+
+@media (max-width: 1200px) {
+    .banner-image {
+        width: 100%;
+        margin: -42.5vh auto;
+        margin-bottom: 0;
+        border-radius: 0;
+        overflow-x: hidden;
+    }
 }

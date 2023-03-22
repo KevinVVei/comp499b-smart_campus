@@ -21,21 +21,40 @@ app.get("/api/events", (req, res) => {
     db.query(sqlSelect, (err, result) => {
         res.send(result); 
     });
-})
+});
+
+app.post("/api/newEvent", (req, res) => {
+    const name = req.body.name;
+    const details = req.body.details;
+    const date = req.body.date;
+    const time = req.body.time;
+    const location = req.body.location;
+    const type = req.body.type;
+
+    const sqlInsert = "INSERT INTO events (event_name, event_details, event_date, event_time, event_location, type) VALUES (?, ?, ?, ?, ?, ?);"
+    db.query(sqlInsert, [name, details, date, time, location, type], (err, result) => {
+        if(err){
+            res.send({err: err});
+        } else {
+            
+            res.send({message: "Successfully added Event"});
+        }
+    });
+});
 
 app.get("/api/courses", (req, res) => {
     const sqlSelect = "SELECT * FROM courses";
     db.query(sqlSelect, (err, result) => {
         res.send(result);
     });
-})
+});
 
 app.get("/api/survey", (req, res) => {
     const sqlSelect = "SELECT * FROM survey"
     db.query(sqlSelect, (err, result) => {
         res.send(result); 
     });
-})
+});
 
 
 app.post("/api/surveyIn", (req, res) => {
@@ -47,15 +66,13 @@ app.post("/api/surveyIn", (req, res) => {
     const courses= req.body.courses;
     // const courses = "4990"
 
-    
     const sqlInsert = "INSERT INTO survey (FormID, Name, Year, Term, Major, Courses) VALUES (?, ?, ?, ?, ?, ?);"
     db.query(sqlInsert, [formID, name, year, term, major, courses], (err, result) => {
         if(err){
             res.send({err: err});
-            console.log("error "+ formID + " "+ name + " " + year + " " + term + " " + major + " " + courses);
         }
     });
-})
+});
 
 
 
@@ -108,7 +125,7 @@ app.post("/api/register", (req, res) => {
             });
         }
     });
-})
+});
 
 app.post("/api/SignIn", (req, res) => {
     const usern = req.body.usern;
@@ -130,9 +147,8 @@ app.post("/api/SignIn", (req, res) => {
         } else {
             res.send({message: "Wrong username/password combination!"});
         }
-        console.log(result);
     });
-})
+});
 
 app.listen(4000, () => { 
     console.log("Server started on port 4000")

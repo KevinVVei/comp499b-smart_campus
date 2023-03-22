@@ -10,8 +10,6 @@ const pwd_Regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_-])(?=.{8,20
 
 function SignUp() {
 
-  const [usersData, setUsersData] = useState([]);
-
   const emailRef = useRef();
   const userRef = useRef();
   const errRef = useRef();
@@ -32,7 +30,6 @@ function SignUp() {
   const [matchFocus, setMatchFocus] = useState(false);
 
   const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     emailRef.current.focus();
@@ -84,7 +81,7 @@ function SignUp() {
         if(response.data.message){
           alert(response.data.message);
         } else {
-          setSuccess(true);
+          window.location.href = "/SignIn";
         }
       })
       .catch(err=> {
@@ -95,13 +92,6 @@ function SignUp() {
 
   return (
     <div className="register-form">
-      {success ? (
-        <section className="success">
-          <h1>Successfully registerd account!</h1>
-          <p><Link to="/SignIn">Sign In</Link>
-          </p>
-        </section>
-      ) : (
         <section id="signup">
           <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">
             {errMsg}
@@ -224,10 +214,9 @@ function SignUp() {
                 Sign Up
               </button>
           </form>
-          <span>Already has an account?</span>
+          <span>Already have an account?</span>
           <span><Link to='/SignIn'>Sign In</Link></span>
         </section>
-      )}
     </div>
   )
 }

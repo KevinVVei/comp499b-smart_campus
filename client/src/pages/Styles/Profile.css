@@ -1,16 +1,15 @@
-form {
+#profile-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-label {
+#profile-form label {
   margin-bottom: 0.5rem;
   font-weight: bold;
 }
 
-input,
-textarea {
+#profile-form input, textarea {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -19,7 +18,7 @@ textarea {
   margin-bottom: 1rem;
 }
 
-button {
+#profile-form button {
   background-color: #F2C300;
   border: none;
   color: white;
@@ -32,12 +31,11 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+#profile-form button:hover {
   background-color: #005596;
 }
 
-input[type="text"]:focus,
-textarea:focus {
+#profile-form input[type="text"]:focus, textarea:focus {
   outline: none;
   border: 1px solid #F2C300;
 }
