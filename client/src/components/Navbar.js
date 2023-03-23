@@ -76,7 +76,7 @@ function Navbar () {
                         <>
                         <li>
                             <Link to='/SignIn'>
-                                Log in
+                                Login
                             </Link>                                      
                         </li>
                         <li>
@@ -127,7 +127,7 @@ function Navbar () {
                                 <>
                                 <li onClick={() => {toggleMobileMenu();}}>
                                     <Link to='/SignIn'>
-                                        Log in
+                                        Login
                                     </Link>                                      
                                 </li>
                                 <li onClick={() => {toggleMobileMenu();}}>

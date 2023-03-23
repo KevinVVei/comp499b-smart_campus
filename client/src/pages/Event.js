@@ -159,7 +159,7 @@ function Event() {
                 <div>
                   <h1> {filteredEvent.event_name} </h1>
                   <p> {filteredEvent.event_details} </p>
-                  <h3> {filteredEvent.event_date} at {filteredEvent.event_time} </h3>
+                  <h3> {filteredEvent.event_date} at {filteredEvent.event_time.slice(0, -3)} </h3>
                   <h3> {filteredEvent.event_location} </h3>
                   <button onClick={() => off()} >Back</button>
                 </div>
@@ -175,7 +175,7 @@ function Event() {
               return (
                 <div className='event-container' key={filteredEvent.event_id}>   
                   <h2> {filteredEvent.event_name} </h2>
-                  <h4> {filteredEvent.event_date} at {filteredEvent.event_time} </h4>
+                  <h4> {filteredEvent.event_date} at {filteredEvent.event_time.slice(0, -3)} </h4>
                   <h4> {filteredEvent.event_location} </h4><br/>
                   <button onClick={()=> {on(filteredEvent.event_id)}}>Details</button>
                 </div>
@@ -188,7 +188,7 @@ function Event() {
                 return (
                   <div className='event-container' key={filteredEvent.event_id}>   
                     <h2> {filteredEvent.event_name} </h2>
-                    <h4> {filteredEvent.event_date} at {filteredEvent.event_time} </h4>
+                    <h4> {filteredEvent.event_date} at {filteredEvent.event_time.slice(0, -3)} </h4>
                     <h4> {filteredEvent.event_location} </h4><br/>
                     <button onClick={()=> {on(filteredEvent.event_id)}}>Details</button>
                   </div>

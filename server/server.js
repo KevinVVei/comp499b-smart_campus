@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
 });
 
 app.get("/api/events", (req, res) => {
-    const sqlSelect = "SELECT * FROM events"
+    const sqlSelect = "SELECT * FROM events ORDER BY event_date ASC"
     db.query(sqlSelect, (err, result) => {
         res.send(result); 
     });

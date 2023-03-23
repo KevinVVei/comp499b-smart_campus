@@ -82,7 +82,7 @@ function SignIn () {
           <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">
             {errMsg}
           </p>
-          <h1>Log In</h1>
+          <h1>Login</h1>
           <form onSubmit={handleSubmit}>
             {/* Username */}
             <label htmlFor="username">

@@ -52,7 +52,7 @@ const SurveyForm = () => {
         <input type="text" value={term} onChange={(e) => setTerm(e.target.value)} /><br />
         <label>Major: </label><br/>
         <input type="text" value={major} onChange={(e) => setMajor(e.target.value)} /><br />
-        <label>Course: </label><br/>
+        <label>Courses: </label><br/>
         <input type="text" value={course} onChange={(e) => setCourse(e.target.value)} /><br/>
         <button type="submit">Submit</button>
       </form>
