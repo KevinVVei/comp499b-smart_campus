@@ -68,7 +68,7 @@ function CourseHome() {
                     </div>
                 </div>
 
-                <input id='c-search-input' type='text' placeholder='Search events...' onChange={(e)=> {setSearchTerm(e.target.value)}} onKeyDown={(e) => {if (e.key === 'Enter') {searchCourse()}}}/>
+                <input id='c-search-input' type='text' placeholder='Search courses...' onChange={(e)=> {setSearchTerm(e.target.value)}} onKeyDown={(e) => {if (e.key === 'Enter') {searchCourse()}}}/>
                 <button id='c-search-btn' type='button' onClick={()=> {searchCourse()}}><img src={SearchIcon} alt='search icon' /></button>
                 
                 <Link to='/Guidance'>
