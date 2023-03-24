@@ -108,7 +108,7 @@ function Event() {
           </div>
         </div>
 
-        <input id='search-input' type='text' placeholder='Search events...' onChange={(e)=> {setSearchTerm(e.target.value)}} onKeyDown={(e) => {if (e.key === 'Enter') {searchEvent()}}}/>
+        <input id='search-input' type='text' placeholder='Search events...' autoComplete='off' onChange={(e)=> {setSearchTerm(e.target.value)}} onKeyDown={(e) => {if (e.key === 'Enter') {searchEvent()}}}/>
         <button id='search-btn' type='button' onClick={()=> {searchEvent()}}><img src={SearchIcon} alt='search icon' /></button>
 
         {loggedIn ?
@@ -136,7 +136,7 @@ function Event() {
                 <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} required/><br/>
                 <label>Event Type: </label><br/>
                 <select name="event-type" value={type} onChange={(e) => setType(e.target.value)}><br/>
-                  <option value="University">University</option>
+                  <option value="University" selected="selected">University</option>
                   <option value="Personal">Personal</option>
                 </select><br/><br/>
                 <label>Details: </label><br/>
