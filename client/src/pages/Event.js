@@ -38,6 +38,7 @@ function Event() {
     document.body.classList.remove('disable-scroll');
   };
 
+  // called to filter the events by type
   const filterEvents = (e) => {
     setEventType(e);
     setSearched(false);

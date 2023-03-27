@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Styles/CourseSummary.css';
 
 function CourseSummary(props) {
+  // course information 
   return (
     <div key={props.course.id} id="summary">
       <div>
@@ -13,7 +14,7 @@ function CourseSummary(props) {
         <p>
           {props.course.description}
         </p>
-        
+        {/* take to details */}
         <Link to={'/coursehome/courses/' + props.course.id}>
           <button>More</button>
         </Link>

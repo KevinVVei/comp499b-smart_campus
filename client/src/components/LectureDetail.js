@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../pages/Styles/Course.css'
 
 function LectureDetail(props) {
+    // the following will display out the complete lecture information
     return(
         <section key={props.lecture.id} className="detail">
             <div>

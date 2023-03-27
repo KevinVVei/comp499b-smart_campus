@@ -8,6 +8,7 @@ const Profile = ({  }) => {
   const [bio, setBio] = useState();
   const [profilePicture, setProfilePicture] = useState();
 
+  // handle the form submission and send the data to the server
   const handleSubmit = async (event) => {
     event.preventDefault();
     const userInfo = { name, age, bio, profilePicture };
@@ -20,6 +21,9 @@ const Profile = ({  }) => {
     }
   };
 
+  // add a form to allow users to update their profile information
+  // need work to POST the data to the server
+  // also need a database to store the data
   return (
     <div>
       <form onSubmit={handleSubmit}>

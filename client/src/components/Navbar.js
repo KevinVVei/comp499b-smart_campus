@@ -12,6 +12,7 @@ function Navbar () {
     const [token, setToken] = useState(sessionStorage.getItem('token'));
     const [isLogin, setLogin] = useState(false);
   
+    // check if user is logged in
     useEffect(() => {
       if (token) {
         setLogin(true);
@@ -20,6 +21,7 @@ function Navbar () {
         }
     }, [token]);
 
+    // handle sign out
     const handleSignOut = async (e) => {
         e.preventDefault();
         setLogin(false);
@@ -33,7 +35,6 @@ function Navbar () {
         <Link to='/home' className='logo' >
           <img src={require('../assets/images/uwin-logo.png')} alt='Uwindsor logo' />
         </Link>
-
         <ul className='nav-buttons'>
             <li>
                 <Link to='/CourseHome'>

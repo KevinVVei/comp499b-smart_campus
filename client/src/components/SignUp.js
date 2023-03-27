@@ -34,37 +34,43 @@ function SignUp() {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
+  // focus on email input
   useEffect(() => {
     emailRef.current.focus();
   }, []);
 
+  // check if email is valid
   useEffect(() => {
     const result = email_Regex.test(email);
-    console.log(result);
-    console.log(email);
+    // console.log(result);
+    // console.log(email);
     setValidEmailN(result);
   }, [email]);
 
+  // check if username is valid
   useEffect(() => {
     const result = user_Regex.test(usern);
-    console.log(result);
-    console.log(usern);
+    // console.log(result);
+    // console.log(usern);
     setValidUserN(result);
   }, [usern]);
 
+  // check if password is valid
   useEffect(() => {
     const result = pwd_Regex.test(pwd);
-    console.log(result);
-    console.log(pwd);
+    // console.log(result);
+    // console.log(pwd);
     setValidPwd(result);
     const match = pwd === matchPwd;
     setValidMatch(match);
   }, [pwd, matchPwd]);
 
+  // check if password and match password are the same
   useEffect(() => {
     setErrMsg("");
   }, [email, usern, pwd, matchPwd]);
 
+  // check if username is already taken or not when user leaves the input
   const handleSubmit = async (e) => {
     e.preventDefault();
     const emailInput = email_Regex.test(email);

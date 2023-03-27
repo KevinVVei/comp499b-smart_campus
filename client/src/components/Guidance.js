@@ -24,12 +24,12 @@ function Guidance() {
       <h1>Guidance</h1>
       <p>Here you can find some helpful resources and links for academic guidance.</p>
       <button onClick={() => setShowSurveyForm(true)}>Recommend Your Course Combination</button>
+      {/* check the state of survey form */}
       {showSurveyForm && <SurveyForm />}
 
-
-
       <div className='surveys'>
-          <>
+        <>
+          {/* accept input from user using a form */}
           {forms.map(SurveyForms => {
             return (
               <div key={SurveyForms.FormID} id="form_info">

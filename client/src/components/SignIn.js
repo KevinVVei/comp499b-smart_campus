@@ -26,10 +26,12 @@ function SignIn () {
   const [success, setSuccess] = useState(false);
   const [token, setToken] = useState();
 
+  // focus on username input
   useEffect(() => {
     userRef.current.focus();
   }, []);
 
+  // check if username is valid
   useEffect(() => {
     const result = user_Regex.test(usern);
     // console.log(result);
@@ -37,6 +39,7 @@ function SignIn () {
     setValidUserN(result);
   }, [usern]);
 
+  // check if password is valid
   useEffect(() => {
     const result = pwd_Regex.test(pwd);
     // console.log(result);
@@ -44,11 +47,12 @@ function SignIn () {
     setValidPwd(result);
   }, [pwd]);
 
+  // prompt error message if username or password is invalid
   useEffect(() => {
     setErrMsg("");
   }, [usern, pwd]);
 
-
+  // check if username and password are valid and send to server for authentication
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userInput = user_Regex.test(usern);

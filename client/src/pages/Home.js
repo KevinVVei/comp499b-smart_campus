@@ -6,6 +6,7 @@ import event from '../assets/images/timetable.png';
 import UW from '../assets/images/UW.jpg';
 
 function Homepage() {
+        // just a simple home page
         return(
         <div className='home-page'>
              
