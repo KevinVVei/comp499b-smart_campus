@@ -1,15 +1,17 @@
 footer {
-    clear: both;
-    position: relative;
+    width: 100%;
     margin-top: 50px;
-    margin-left: 10%;
-    border-radius: 25px 25px 0 0;
-    padding: 0;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    width: 80%;
-    bottom: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
     text-align: center;
-    background-color: #005596;
-    color: #F2C300;
+    background-color: lightgray;
+}
+
+footer a {
+    text-decoration: none;
+    color: #0B2E4E;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }

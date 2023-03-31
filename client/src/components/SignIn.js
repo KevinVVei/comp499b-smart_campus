@@ -9,8 +9,6 @@ const pwd_Regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_-])(?=.{8,20
 
 function SignIn () {
 
-  const [usersData, setUsersData] = useState([]);
-
   const userRef = useRef();
   const errRef = useRef();
 
@@ -23,8 +21,7 @@ function SignIn () {
   const [pwdFocus, setPwdFocus] = useState(false);
 
   const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
-  const [token, setToken] = useState();
+  // const [token, setToken] = useState();
 
   // focus on username input
   useEffect(() => {
@@ -71,10 +68,10 @@ function SignIn () {
         if(response.data.message){
           alert(response.data.message);
         } else {
-          setSuccess(true);
-          setToken(response.data.token);
+          // setToken(response.data.token);
           sessionStorage.setItem('token', response.data.token);
           sessionStorage.setItem('user', usern);
+          window.location.href = "/home";
         }
       })
       .catch(err=> {
@@ -85,21 +82,11 @@ function SignIn () {
 
   return (
     <div className="signin-form">
-      {success ? (
-        <section className="success">
-          <h1>Success!</h1>
-          <span>2 seconds to refresh</span>
-          <p><Link to='/'
-            onClick={setTimeout(() => window.location.reload() , 2000)}
-            >Home</Link>
-          </p>
-        </section>
-      ) : (
         <section id="form-container">
           <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">
             {errMsg}
           </p>
-          <h1>Sign In</h1>
+          <h1>Log In</h1>
           <form onSubmit={handleSubmit}>
             {/* Username */}
             <label htmlFor="username">
@@ -168,7 +155,6 @@ function SignIn () {
             <span>Don't have an account?</span>
           <span><Link to='/SignUp'>Sign Up</Link></span>
         </section>
-      )}
     </div>
   )
 }

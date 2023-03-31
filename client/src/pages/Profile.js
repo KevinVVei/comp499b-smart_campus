@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Styles/Profile.css';
 import axios from 'axios';
 
-const Profile = ({  }) => {
+const Profile = () => {
   const [name, setName] = useState();
   const [age, setAge] = useState();
   const [bio, setBio] = useState();

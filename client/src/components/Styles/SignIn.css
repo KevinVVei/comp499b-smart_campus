@@ -1,9 +1,9 @@
 .signin-form {
-    margin-top: 5%;
-    margin-bottom: 13%;
-  }
+    margin-top: -15vh;
+    margin-bottom: 18%;
+}
   
-  #form-container {
+#form-container {
     margin: auto;
     max-width: 420px;
     min-height: 400px;
@@ -12,12 +12,11 @@
     flex-direction: column;
     justify-content: flex-start;
     padding: 1rem;
-    background-color: #005596;
+    background-color: lightgray;
   }
   
   #form-container h1 {
     text-align: center;
-    color: white;
   }
   
   #form-container p {
@@ -26,7 +25,7 @@
   }
   
   #form-container a {
-    color: #F2C300;
+    color: #005596;
   }
   
   #form-container form {
@@ -59,6 +58,8 @@
   }
   
   .submit-btn:enabled:hover {
+    background-color: #005596;
+    color: #fdfdfd;
     cursor: pointer;
   }
   

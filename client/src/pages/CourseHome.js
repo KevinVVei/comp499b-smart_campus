@@ -5,8 +5,6 @@ import SearchIcon from '../assets/images/search-icon.svg';
 import UpArrow from '../assets/images/up-arrow.svg';
 import './Styles/CourseHome.css';
 
-
-
 /*displays links to courses according to faculty*/
 function CourseHome() {
 
@@ -18,7 +16,7 @@ function CourseHome() {
     const [error, setError] = useState(false);
 
 
-    {/*on first render this gets the data loaded from the api at the specified link and stores it into the courseData array*/}
+    /*on first render this gets the data loaded from the api at the specified link and stores it into the courseData array*/
     useEffect(() => {
         Axios.get('http://localhost:4000/api/courses')
         .then(response => {
@@ -30,21 +28,24 @@ function CourseHome() {
         });
     }, []);
 
+    //sets sarched to true allowing for the courses to be filtered according to the value stored
     const searchCourse = () => {
         setSearched(true);
     }
 
+    //called to filter the courses according the faculty passed from the filter button
     const filterCourses = (e) => {
         setFaculty(e);
     }
 
+    //this function is called to show the overlay of the popup and disables scrolling
     function on(element) {
         setCourseId(element);
         document.getElementById("overlay").style.display = "block";
         document.body.classList.add('disable-scroll');
     };
 
-    {/*this function is called to hide the overlay of the popup and ebable scrolling*/}
+    /*this function is called to hide the overlay of the popup and ebable scrolling*/
     function off() {
         document.getElementById("overlay").style.display = "none";
         document.body.classList.remove('disable-scroll');
@@ -52,32 +53,33 @@ function CourseHome() {
 
     return (
         <div className="CourseHomePage">  
-            <img className='banner-image' src={require('../assets/images/uwindsor.jpeg')} alt='uwindsor banner' />
+            <img src={require('../assets/images/uwindsor.jpeg')} alt='uwindsor banner' />
 
-            <div className='course-filter'>
+            {/*filter button and options that on click will filter according to faculty set*/}
+            <div className='course-search'>
                 <div className='c-dropdown'>
-                <button className='c-filter-btn'>Filter</button>
-                <div className="c-dropdown-content">
-                    <span onClick={()=> {filterCourses('AHSS')}}>AHSS</span>
-                    <span onClick={()=> {filterCourses('Education')}}>Education</span>
-                    <span onClick={()=> {filterCourses('Engineering')}}>Engineering</span>
-                    <span onClick={()=> {filterCourses('Graduate')}}>Graduate</span>
-                    <span onClick={()=> {filterCourses('Human Kinetics')}}>Human Kinetics</span>
-                    <span onClick={()=> {filterCourses('Law')}}>Law</span>
-                    <span onClick={()=> {filterCourses('Nursing')}}>Nursing</span>
-                    <span onClick={()=> {filterCourses('Business')}}>Business</span>
-                    <span onClick={()=> {filterCourses('Computer Science')}}>Computer Science</span>
+                    <button className='c-filter-btn'>Filter</button>
+                    <div className="c-dropdown-content">
+                        <span onClick={()=> {filterCourses('AHSS')}}>AHSS</span>
+                        <span onClick={()=> {filterCourses('Education')}}>Education</span>
+                        <span onClick={()=> {filterCourses('Engineering')}}>Engineering</span>
+                        <span onClick={()=> {filterCourses('Graduate')}}>Graduate</span>
+                        <span onClick={()=> {filterCourses('Human Kinetics')}}>Human Kinetics</span>
+                        <span onClick={()=> {filterCourses('Law')}}>Law</span>
+                        <span onClick={()=> {filterCourses('Nursing')}}>Nursing</span>
+                        <span onClick={()=> {filterCourses('Business')}}>Business</span>
+                        <span onClick={()=> {filterCourses('Computer Science')}}>Computer Science</span>
+                    </div>
                 </div>
-            </div>
 
-            <div className='c-search-bar'>
-                <input id='search-input' type='text' placeholder='Search events...' onChange={(e)=> {setSearchTerm(e.target.value)}} />
-                <button type='button' onClick={()=> {searchCourse()}}><img src={SearchIcon} alt='search icon' /></button>
+                {/*search bar and button calls the searchCourse function passing the search value*/}
+                <input id='c-search-input' type='text' placeholder='Search events...' onChange={(e)=> {setSearchTerm(e.target.value)}} onKeyDown={(e) => {if (e.key === 'Enter') {searchCourse()}}}/>
+                <button id='c-search-btn' type='button' onClick={()=> {searchCourse()}}><img src={SearchIcon} alt='search icon' /></button>
+                
+                <Link to='/Guidance'>
+                    <button className='guidance-btn'>Guidance</button>
+                </Link>
             </div>
-            <Link to='/Guidance'>
-                <button className='c-filter-btn'>Guidance</button>
-            </Link>
-        </div>
 
         {!error ?
             <span>
@@ -85,9 +87,10 @@ function CourseHome() {
             <div id='overlay'>
                 <div className='course-details'>
                     {courses.filter(course => course.course_id === courseId).map(filteredCourse1 => (
-                        <div key={filteredCourse1.course_id} id="detailed-summary">
-                            <div>
-                                <h1>{filteredCourse1.course_id} : {filteredCourse1.course_name}</h1>
+                        <div>
+                            <h1>{filteredCourse1.course_id} : {filteredCourse1.course_name}</h1>
+
+                            <div key={filteredCourse1.course_id} id="detailed-summary">
                                 <p>{filteredCourse1.course_summary}</p>
                                 <p><b>Prerequisites:</b> {filteredCourse1.course_prerequisites}</p>
                                 <p><b>Terms:</b> {filteredCourse1.course_schedule}</p>
@@ -108,9 +111,8 @@ function CourseHome() {
                 {courses.filter(course => course.faculty === faculty).map(filteredCourse => {
                     return (
                         <div key={filteredCourse.course_id} id="summary">
+                            <h2>{filteredCourse.course_id} : {filteredCourse.course_name}</h2>
                             <div>
-                                <h2>{filteredCourse.course_id} : {filteredCourse.course_name}</h2>
-                        
                                 <p>{filteredCourse.course_summary}</p><br />
                                 
                                 <button onClick={() => on(filteredCourse.course_id)}>More</button>
@@ -121,12 +123,12 @@ function CourseHome() {
                 </>
                 :
                 <>
+                    {/*filters courses according to the search term and updates the page*/}
                     {courses.filter(course => course.course_name.toLowerCase().includes(searchTerm.toLowerCase())).map(filteredCourse => {
                         return (
                             <div key={filteredCourse.course_id} id="summary">
+                                <h2>{filteredCourse.course_id} : {filteredCourse.course_name}</h2>
                                 <div>
-                                    <h2>{filteredCourse.course_id} : {filteredCourse.course_name}</h2>
-                            
                                     <p>{filteredCourse.course_summary}</p><br />
                                     
                                     <button onClick={() => on(filteredCourse.course_id)}>More</button>
